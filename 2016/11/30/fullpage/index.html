@@ -1,0 +1,1283 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jquery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/ico.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="jQuery全屏滚动插件:fullPage.js 
+http://www.jq22.com/jquery-info1124
+fullPage.js介绍1.是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：
+1.支持鼠标滚动 
+  2.多个回调函数 
+  3.支持手机、平板触屏事件 
+  4.支持css3动画 
+  5.支持窗口缩放 
+  6.窗口缩放时自动调整">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fullpage.js">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/fullpage/index.html">
+<meta property="og:site_name" content="cyn">
+<meta property="og:description" content="jQuery全屏滚动插件:fullPage.js 
+http://www.jq22.com/jquery-info1124
+fullPage.js介绍1.是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：
+1.支持鼠标滚动 
+  2.多个回调函数 
+  3.支持手机、平板触屏事件 
+  4.支持css3动画 
+  5.支持窗口缩放 
+  6.窗口缩放时自动调整">
+<meta property="og:updated_time" content="2016-11-30T08:34:09.002Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="fullpage.js">
+<meta name="twitter:description" content="jQuery全屏滚动插件:fullPage.js 
+http://www.jq22.com/jquery-info1124
+fullPage.js介绍1.是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：
+1.支持鼠标滚动 
+  2.多个回调函数 
+  3.支持手机、平板触屏事件 
+  4.支持css3动画 
+  5.支持窗口缩放 
+  6.窗口缩放时自动调整">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6357534273150387000',
+      author: 'cynshow'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/30/fullpage/"/>
+
+
+
+
+
+  <title> fullpage.js | cyn </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8899b816b69df2cf6bc5fda8e702073c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">cyn</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-resume">
+          <a href="/resume" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            简历
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            作品
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/fullpage/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="cynshow">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohaziw2mb.bkt.clouddn.com/head.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="cyn">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="cyn" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                fullpage.js
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T12:46:08+08:00">
+                2016-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/30/fullpage/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/fullpage/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/11/30/fullpage/" class="leancloud_visitors" data-flag-title="fullpage.js">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>jQuery全屏滚动插件:fullPage.js <br>
+<a href="http://www.jq22.com/jquery-info1124" target="_blank" rel="external">http://www.jq22.com/jquery-info1124</a></p>
+<h3 id="fullPage-js介绍"><a href="#fullPage-js介绍" class="headerlink" title="fullPage.js介绍"></a>fullPage.js介绍</h3><h4 id="1-是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有："><a href="#1-是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：" class="headerlink" title="1.是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有："></a>1.是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：</h4><blockquote>
+<p>1.支持鼠标滚动 <br>
+  2.多个回调函数 <br>
+  3.支持手机、平板触屏事件 <br>
+  4.支持css3动画 <br>
+  5.支持窗口缩放 <br>
+  6.窗口缩放时自动调整 <br>
+  7.可设置滚动宽度、背景颜色、滚动速度、循环选项、回调、文本对齐方式等</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="2-获取方式："><a href="#2-获取方式：" class="headerlink" title="2.获取方式："></a>2.获取方式：</h4><blockquote>
+<p>github主页：<a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">https://github.com/alvarotrigo/fullPage.js</a></p>
+</blockquote>
+<h4 id="3-兼容性及大小、版本"><a href="#3-兼容性及大小、版本" class="headerlink" title="3.兼容性及大小、版本"></a>3.兼容性及大小、版本</h4><blockquote>
+<p>支持所有主流浏览器，除IE6、IE7 <br>
+  大小:7kb <br>
+  最新版本是V2.6.7</p>
+</blockquote>
+<hr>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3><h4 id="1-引入相关文件"><a href="#1-引入相关文件" class="headerlink" title="1.引入相关文件"></a>1.引入相关文件</h4><blockquote>
+<p>1.css文件：jquery.fukkPage.css(可以自己写不用引入，其他为重要引入 ) <br>
+  2.jquery文件：1.6以上版本即可 <br>
+  3.easing文件：jquery.easing.js，支持更多动画过渡效果的插件,可选的，非必须 <br>
+  4.fullPage文件：jquery.fullPage.js <br>
+  注意： <br>
+  1.使用cdn上的文件，而非本地文件，当部署到自己网站时，可以减轻自己服务器的压力，提高用户的访问速度  <br>
+  2.<a href="https://cdnjs.com上的fullPage.js版本是最新的" target="_blank" rel="external">https://cdnjs.com上的fullPage.js版本是最新的</a></p>
+</blockquote>
+<h4 id="2-页面的基本结构"><a href="#2-页面的基本结构" class="headerlink" title="2.页面的基本结构"></a>2.页面的基本结构</h4><blockquote>
+<p>每个页面的div都要设置<code>class=&quot;section&quot;</code>
+  页面可设置幻灯片，<code>class=&quot; slide&quot;</code>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"fullpage"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span>第一屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span>          //每一个session对应一个页面</div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span>第二屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第一屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span>   //可以给每个页面加slide幻灯片</div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第二屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第三屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"slide"</span>&gt;</span>第三屏的第四屏<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"section"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>这是第四屏<span class="tag">&lt;/<span class="name">h1</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="3-JavaScript"><a href="#3-JavaScript" class="headerlink" title="3.JavaScript"></a>3.JavaScript</h4><blockquote>
+<p>要想激活fullpage效果，需要加入：
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">   $(documnet).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      $(<span class="string">'#fullpage'</span>).fullpage();          </div><div class="line">   &#125;);               <span class="comment">//在加载fullpage的时候引入fullpage方法</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h3 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h3><h4 id="sectionsColor"><a href="#sectionsColor" class="headerlink" title="sectionsColor"></a>sectionsColor</h4><blockquote>
+<p>可以为每个section设置background-color属性。</p>
+</blockquote>
+<h4 id="controlArrows："><a href="#controlArrows：" class="headerlink" title="controlArrows："></a>controlArrows：</h4><blockquote>
+<p>定义是否通过箭头来控制slide幻灯片，默认为true。当我们设置为false，则幻灯片左右两侧的箭头就会消失，在移动设备上，我们可以通过滑动来操作幻灯片。</p>
+</blockquote>
+<h4 id="verticalCentered"><a href="#verticalCentered" class="headerlink" title="verticalCentered"></a>verticalCentered</h4><blockquote>
+<p>每一页的内容是否垂直居中，默认值为true。一般我们保持默认值。</p>
+</blockquote>
+<h4 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h4><blockquote>
+<p>字体是否随着窗口缩放而缩放，默认值为false。</p>
+</blockquote>
+<h4 id="scrollingSpeed"><a href="#scrollingSpeed" class="headerlink" title="scrollingSpeed"></a>scrollingSpeed</h4><blockquote>
+<p>设置滚动速度，单位为毫秒，默认为700。</p>
+</blockquote>
+<h4 id="anchors"><a href="#anchors" class="headerlink" title="anchors"></a>anchors</h4><blockquote>
+<p>定义锚链接，默认值为[]。有了锚链接，用户就可以快速打开定位到某一页面。 <br>
+  注意：定义锚链接的时候，值不要和页面中任意的id或name相同，尤其是在IE浏览器下。而且定义是不需要加<code>#</code>  <br>
+  <code>http://localhost:63342/index.html#page1</code> 地址栏上的地址多了<code>#page1</code>，方便用户搜藏链接，然后快速打开</p>
+</blockquote>
+<h4 id="lockAnchors"><a href="#lockAnchors" class="headerlink" title="lockAnchors"></a>lockAnchors</h4><blockquote>
+<p>是否锁定锚链接，默认为false。如果设置为true，那么定义的锚链接，也就是anchors属性则没有效果。这个配置项使用的比较少。</p>
+</blockquote>
+<h4 id="添加active类，-打开网页直接定位到此页面"><a href="#添加active类，-打开网页直接定位到此页面" class="headerlink" title="添加active类， 打开网页直接定位到此页面"></a>添加active类， 打开网页直接定位到此页面</h4><blockquote>
+<p>如：<code>&lt;div class=&quot;slide active&quot;&gt;幻灯片2&lt;/div&gt;</code> <br>
+     <code>&lt;div class=&quot;section active&quot;&gt;&lt;h1&gt;这是第3屏&lt;/h1&gt;&lt;/div&gt;</code></p>
+</blockquote>
+<h4 id="easing"><a href="#easing" class="headerlink" title="easing:"></a>easing:</h4><blockquote>
+<p>定义页面section滚动的动画方式，默认为easeInOutCubic，如果修改此项，需要引入jquery。easings插件，或者jquery ui。</p>
+</blockquote>
+<h4 id="css3"><a href="#css3" class="headerlink" title="css3:"></a>css3:</h4><blockquote>
+<p>是否使用css3 transforms来实现滚动效果，默认为true。这个配置项可以提高支持css3的浏览器，比如移动设备等的速度，如果浏览器不支持css3，则会使用jquery来替代css3实现滚动效果。 <br>
+ （即优雅降级，使用jquery实现动画，一般来说，它的性能不如css动画来得快。）</p>
+</blockquote>
+<h4 id="loopTop"><a href="#loopTop" class="headerlink" title="loopTop:"></a>loopTop:</h4><blockquote>
+<p>滚动到最顶部后是否连续滚动到底部，默认为false。</p>
+</blockquote>
+<h4 id="loopBottom："><a href="#loopBottom：" class="headerlink" title="loopBottom："></a>loopBottom：</h4><blockquote>
+<p>滚动到最底部后是否连续滚动回顶部，默认为false。</p>
+</blockquote>
+<h4 id="loopHorizontal："><a href="#loopHorizontal：" class="headerlink" title="loopHorizontal："></a>loopHorizontal：</h4><blockquote>
+<p>横向slider幻灯片是否循环滚动，默认为true。 <br>
+  （设置为false时，在第一个slider时，没有向左滚动的箭头，不能向左滚动。同理，最后一个slider时，没有向右滚动的箭头，不能向右滚动。）</p>
+</blockquote>
+<h4 id="autoScrolling："><a href="#autoScrolling：" class="headerlink" title="autoScrolling："></a>autoScrolling：</h4><blockquote>
+<p>是否使用插件的滚动方式，默认为true，如果选择false，则会出现浏览器自带的滚动条，将不会按页滚动，而是按照滚动条的默认行为来滚动。</p>
+</blockquote>
+<h4 id="scrollBar："><a href="#scrollBar：" class="headerlink" title="scrollBar："></a>scrollBar：</h4><blockquote>
+<p>是否包含滚动条，默认为false，如果设置为true，则浏览器自带的滚动条出现，页面滚动时还是按页滚动，但是滚动条的默认行为也有效。</p>
+</blockquote>
+<h4 id="paddingTop-paddingBottom："><a href="#paddingTop-paddingBottom：" class="headerlink" title="paddingTop/paddingBottom："></a>paddingTop/paddingBottom：</h4><blockquote>
+<p>设置每一个section顶部和底部的padding，默认都为0.一般如果我们需要设置一个固定在顶部或者底部的菜单、导航、元素等，可以使用这两个配置项。</p>
+</blockquote>
+<h4 id="fixedElements："><a href="#fixedElements：" class="headerlink" title="fixedElements："></a>fixedElements：</h4><blockquote>
+<p>固定的元素，默认为null，需要配置一个jquery选择器。在页面滚动的时候，fixedElements设置的元素固定不动。</p>
+</blockquote>
+<h4 id="keyboardScrolling："><a href="#keyboardScrolling：" class="headerlink" title="keyboardScrolling："></a>keyboardScrolling：</h4><blockquote>
+<p>是否可以使用键盘方向键导航，默认为true。</p>
+</blockquote>
+<h4 id="touchSensitivity："><a href="#touchSensitivity：" class="headerlink" title="touchSensitivity："></a>touchSensitivity：</h4><blockquote>
+<p>在移动设备中滑动页面的敏感性，默认为5，是按百分比来衡量，最高为100，越大则越难滑动。</p>
+</blockquote>
+<h4 id="continuousVertical"><a href="#continuousVertical" class="headerlink" title="continuousVertical:"></a>continuousVertical:</h4><blockquote>
+<p>是否循环滚动，默认为false。如果设置为true，则页面会循环滚动，而不像loopTop或loopBottom那样出现跳动，注意这个属性和loopTop、loopBottom不兼容，不要同时设置。</p>
+</blockquote>
+<h4 id="animateAnchor："><a href="#animateAnchor：" class="headerlink" title="animateAnchor："></a>animateAnchor：</h4><blockquote>
+<p>锚链接是否可以控制滚动动画，默认为true。如果设置为false，则通过锚链接定位到某个页面显示不再有动画效果。</p>
+</blockquote>
+<h4 id="recordHistory"><a href="#recordHistory" class="headerlink" title="recordHistory:"></a>recordHistory:</h4><blockquote>
+<p>是否记录历史，默认为true，可以记录页面滚动的历史，通过浏览器的前进后退来导航。注意如果设置了autoScrolling：false，那么这个配置也将被关闭，即设置为false。</p>
+</blockquote>
+<h4 id="menu："><a href="#menu：" class="headerlink" title="menu："></a>menu：</h4><blockquote>
+<p>绑定菜单，设定的相关属性与anchors的值对应后，菜单可以控制滚动，默认为false。可以设置为菜单的jquery选择器 <br>
+  例：
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--ul的ID名'，在这之前要先设置一个 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">id</span>=<span class="string">"fullpageMenu"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-menuanchor</span>=<span class="string">"page1"</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#page1"</span>&gt;</span>section1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-menuanchor</span>=<span class="string">"page2"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#page2"</span>&gt;</span>section1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>anchors:[‘page1’,’page2’,’page3’], <br>
+  menu:’#funnpageMenu’  <br><br>  ps:data-menuanchor以及href的值都是与锚链接一一对应的     </p>
+</blockquote>
+<h4 id="navigation"><a href="#navigation" class="headerlink" title="navigation:"></a>navigation:</h4><blockquote>
+<p>是否显示导航，默认为false。如果设置为true，会显示小圆点，作为导航。</p>
+</blockquote>
+<h4 id="navigationPosition："><a href="#navigationPosition：" class="headerlink" title="navigationPosition："></a>navigationPosition：</h4><blockquote>
+<p>导航小圆点的位置，可以设置为left或right。 <br>
+  navigationTooltips: <br>
+  导航小圆点的tooltips设置鼠标经过时显示的名字，默认为[]，注意按照顺序设置。 <br>
+  例：
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">navigation:<span class="literal">true</span>,</div><div class="line"><span class="attr">navigationPosition</span>:<span class="string">'right'</span>,</div><div class="line"><span class="attr">navigationTooltips</span>:[<span class="string">'page1'</span>,<span class="string">'page2'</span>,<span class="string">'page3'</span>]</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="showActiveTooltip："><a href="#showActiveTooltip：" class="headerlink" title="showActiveTooltip："></a>showActiveTooltip：</h4><blockquote>
+<p>是否显示当前页面的导航的tooltip信息，默认为false</p>
+</blockquote>
+<h4 id="slidesNavigation："><a href="#slidesNavigation：" class="headerlink" title="slidesNavigation："></a>slidesNavigation：</h4><blockquote>
+<p>是否显示横向幻灯片的导航，默认false。</p>
+</blockquote>
+<h4 id="slidesNavPosition："><a href="#slidesNavPosition：" class="headerlink" title="slidesNavPosition："></a>slidesNavPosition：</h4><blockquote>
+<p>横向幻灯片导航的位置，默认为bottom，可以设置为top或bottom</p>
+</blockquote>
+<h4 id="scrollOverflow："><a href="#scrollOverflow：" class="headerlink" title="scrollOverflow："></a>scrollOverflow：</h4><blockquote>
+<p>内容超过满屏后是否显示滚动条，默认为false。如果设置为true，则会显示滚动条，如果要滚动查看内容，还需要jquery.slimscroll插件的配合。slimscroll插件主要用于模拟传统的浏览器滚动条。</p>
+</blockquote>
+<h4 id="sectionSelector："><a href="#sectionSelector：" class="headerlink" title="sectionSelector："></a>sectionSelector：</h4><blockquote>
+<p>section的选择器，默认为.section。</p>
+</blockquote>
+<h4 id="slideSelector："><a href="#slideSelector：" class="headerlink" title="slideSelector："></a>slideSelector：</h4><blockquote>
+<p>slide的选择器，默认为.slide。 <br>
+  例：
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">   $(documnet).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     $(<span class="string">'#fullpage'</span>).fullpage(&#123;</div><div class="line">         <span class="attr">sectionsColor</span>:[<span class="string">'#254875'</span>,<span class="string">'#00FF00'</span>,<span class="string">'red'</span>,],</div><div class="line">         <span class="attr">controlArrows</span>:<span class="literal">false</span>,</div><div class="line">         <span class="attr">verticalCentered</span>:<span class="literal">false</span>，</div><div class="line">         anchors:[<span class="string">'page1'</span>,<span class="string">'page2'</span>,<span class="string">'page3'</span>],</div><div class="line">         <span class="attr">paddingTop</span>:<span class="string">'200px'</span>,</div><div class="line">         <span class="attr">fixedElements</span>:<span class="string">'#header'</span></div><div class="line">      &#125;);</div><div class="line">   &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<hr>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>方法的使用方式：$.fn.fullpage.xxx()</p>
+<h4 id="moveSectionUp"><a href="#moveSectionUp" class="headerlink" title="moveSectionUp():"></a>moveSectionUp():</h4><blockquote>
+<p>向上滚动一页</p>
+</blockquote>
+<h4 id="moveSectionDown"><a href="#moveSectionDown" class="headerlink" title="moveSectionDown():"></a>moveSectionDown():</h4><blockquote>
+<p>向下滚动一页</p>
+</blockquote>
+<h4 id="moveTo-section-slide"><a href="#moveTo-section-slide" class="headerlink" title="moveTo(section,slide):"></a>moveTo(section,slide):</h4><blockquote>
+<p>滚动到第几页，第几个幻灯片，注意，页面是1开始，而幻灯片，是从0开始。 <br>
+  例：<code>$.fn.fullpage.moveTo(1,0)</code></p>
+</blockquote>
+<h4 id="slientMoveTo-section-slide"><a href="#slientMoveTo-section-slide" class="headerlink" title="slientMoveTo(section,slide):"></a>slientMoveTo(section,slide):</h4><blockquote>
+<p>滚动到第几页，和moveTo一样，但是没有动画效果。</p>
+</blockquote>
+<h4 id="moveSlideRight"><a href="#moveSlideRight" class="headerlink" title="moveSlideRight():"></a>moveSlideRight():</h4><blockquote>
+<p>幻灯片向右滚动</p>
+</blockquote>
+<h4 id="moveSlideLeft"><a href="#moveSlideLeft" class="headerlink" title="moveSlideLeft():"></a>moveSlideLeft():</h4><blockquote>
+<p>幻灯片向左滚动。</p>
+</blockquote>
+<h4 id="setAutoScrolling-boolean"><a href="#setAutoScrolling-boolean" class="headerlink" title="setAutoScrolling(boolean):"></a>setAutoScrolling(boolean):</h4><blockquote>
+<p>动态设置autoScrolling</p>
+</blockquote>
+<h4 id="setLockAnchors-boolean"><a href="#setLockAnchors-boolean" class="headerlink" title="setLockAnchors(boolean):"></a>setLockAnchors(boolean):</h4><blockquote>
+<p>动态设置lockAnchors</p>
+</blockquote>
+<h4 id="setRecordHistory-boolean"><a href="#setRecordHistory-boolean" class="headerlink" title="setRecordHistory(boolean):"></a>setRecordHistory(boolean):</h4><blockquote>
+<p>动态设置recordHistory</p>
+</blockquote>
+<h4 id="setScrollingSpeed-milliseconds"><a href="#setScrollingSpeed-milliseconds" class="headerlink" title="setScrollingSpeed(milliseconds):"></a>setScrollingSpeed(milliseconds):</h4><blockquote>
+<p>动态设置scrollingSpeed</p>
+</blockquote>
+<h4 id="setAllowScrolling-boolean-directions"><a href="#setAllowScrolling-boolean-directions" class="headerlink" title="setAllowScrolling(boolean,[directions]):"></a>setAllowScrolling(boolean,[directions]):</h4><h4 id="添加或删除鼠标滚轮-滑动控制，"><a href="#添加或删除鼠标滚轮-滑动控制，" class="headerlink" title="添加或删除鼠标滚轮/滑动控制，"></a>添加或删除鼠标滚轮/滑动控制，</h4><blockquote>
+<p>第一个参数true为启用，false为禁用，后面的参数为方向，取值包含all,up,down,left,right,可以使用多个，逗号分隔 <br>
+  比如我们在做一个有奖问答页面，提问的问题在前面的页面有答案，当滚动到最后一页时，不希望用户在滚动回之前的页面查看答案，就可以使用这样的方法。</p>
+</blockquote>
+<h4 id="destroy-type"><a href="#destroy-type" class="headerlink" title="destroy(type)"></a>destroy(type)</h4><blockquote>
+<p>销毁fullpage特效，type可以不写，或者使用all，不写type，fullpaga给页面添加的样式和html元素还在，如果使用all，则样式、html等全部销毁，页面恢复和不使用fullpage相同的效果。</p>
+</blockquote>
+<h4 id="reBuild"><a href="#reBuild" class="headerlink" title="reBuild()"></a>reBuild()</h4><blockquote>
+<p>重新更新页面和尺寸，用于通过ajax请求后改变了页面结构之后，重建效果。</p>
+</blockquote>
+<hr>
+<h3 id="Lazy-Loading-延迟加载"><a href="#Lazy-Loading-延迟加载" class="headerlink" title="Lazy Loading 延迟加载"></a>Lazy Loading 延迟加载</h3><h4 id="图片："><a href="#图片：" class="headerlink" title="图片："></a>图片：</h4><blockquote>
+<p><code>&lt;img daye-src=&quot;image.png&quot;&gt;</code></p>
+</blockquote>
+<h4 id="视频："><a href="#视频：" class="headerlink" title="视频："></a>视频：</h4><blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">video</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">source</span> <span class="attr">data-src</span>=<span class="string">"video.webm"</span> <span class="attr">type</span>=<span class="string">"video/webm"</span> /&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">source</span> <span class="attr">data-src</span>=<span class="string">"video.mp4"</span> <span class="attr">type</span>=<span class="string">"video/mp4"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></div></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h3 id="回调"><a href="#回调" class="headerlink" title="回调"></a>回调</h3><h4 id="afterLoad-anchorLink-index"><a href="#afterLoad-anchorLink-index" class="headerlink" title="afterLoad(anchorLink,index)"></a>afterLoad(anchorLink,index)</h4><blockquote>
+<p>滚动到某一section，且滚动结束后，会触发一次此回调函数，函数接受anchorLink和index两个参数，anchorLink是锚链接的名称，index是序号，从1开始计算。
+  我们可以根据anchorLink和index参数值的判断，触发相应的事件。</p>
+</blockquote>
+<h4 id="onLeave-index-nextIndex-direction"><a href="#onLeave-index-nextIndex-direction" class="headerlink" title="onLeave(index,nextIndex,direction)"></a>onLeave(index,nextIndex,direction)</h4><blockquote>
+<ul>
+<li>在我们离开一个section时，会触发一次此回调函数，接受index、nextIndex和direction 3个参数：<ul>
+<li>index是离开的“页面”的序号，从1开始计算；</li>
+<li>nextIndex是滚动到的目标“页面”的序号，从1开始计算；</li>
+<li>direction判断往上滚动还是往下滚动，值是up或down。</li>
+</ul>
+</li>
+<li>通过return false；可以取消滚动</li>
+</ul>
+</blockquote>
+<h4 id="afterRender"><a href="#afterRender" class="headerlink" title="afterRender()"></a>afterRender()</h4><blockquote>
+<p>页面结构生成后的回调函数，或者说页面初始化完成后的回调函数。</p>
+</blockquote>
+<h4 id="afterResize"><a href="#afterResize" class="headerlink" title="afterResize()"></a>afterResize()</h4><blockquote>
+<p>浏览器窗口尺寸改变后的回调函数</p>
+</blockquote>
+<h4 id="afterSlideLoad-anchorLink-index-slideAnchor-slideIndex"><a href="#afterSlideLoad-anchorLink-index-slideAnchor-slideIndex" class="headerlink" title="afterSlideLoad(anchorLink,index,slideAnchor,slideIndex)"></a>afterSlideLoad(anchorLink,index,slideAnchor,slideIndex)</h4><blockquote>
+<p>滚动到某一幻灯片后的回调函数，与afterLoad类似，接受anchorLink、index、slidIndex、direction4个参数。</p>
+</blockquote>
+<h4 id="onSlideLeave-anchorLink，index，slideIndex，direction，nextSlideIndex"><a href="#onSlideLeave-anchorLink，index，slideIndex，direction，nextSlideIndex" class="headerlink" title="onSlideLeave(anchorLink，index，slideIndex，direction，nextSlideIndex)"></a>onSlideLeave(anchorLink，index，slideIndex，direction，nextSlideIndex)</h4><blockquote>
+<p>在我们离开一个slide时，会触发一次此回调函数，与onLeave类似，接收anchorLink、index、slideIndex、direction4个参数</p>
+</blockquote>
+<hr>
+<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><ul>
+<li>设计页面</li>
+<li>准备文字和图片素材</li>
+<li>按照设计实现基本的页面效果</li>
+<li>实现动画</li>
+</ul>
+<p>载入jquery.fullpage.js需要先载入jquery.js文件和jquery.easing.js插件，该fullpage插件的参数众多，可分为几大类。
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.fullPage.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"move.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>set()方法用于设置元素的css属性，他带有两个参数：css属性和属性值。</li>
+<li>scale()方法用于放大或压缩元素的大小，按照提供的每一个值，将调用transform的scale方法。</li>
+<li>rotate(deg)方法通过提供的数值作为参数来旋转元素。当方法被调用的时候通过附加到元素的transform属性上。</li>
+<li>eng()方法用于Move.js代码片段的结束，它标识动画的结束。技术上，该方法触发动画的播放。该方法接受一个可选的callback回掉函数。</li>
+</ul>
+<p>例：给页面添加动画效果可利用回调函数（另外：要实现某一东西从某一方向飞入，则首先给其设置一个较大的margin，并设置overflow：hidden，使此东西在页面中显示不出来，然后通过回调函数应用move.js的set（‘margin-方向’，‘使此东西在正确位置的margin值’））</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">afterLoad:<span class="function"><span class="keyword">function</span>(<span class="params">link,index</span>)</span>&#123;</div><div class="line">  <span class="keyword">switch</span>(index)&#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">      move(<span class="string">'section1 h1'</span>).scale(<span class="number">1.5</span>).end();</div><div class="line">      move(<span class="string">'section p'</span>).set(<span class="string">'margin -top'</span>,<span class="string">'5%'</span>).end();          <span class="comment">//调用move.js方法实现动画</span></div><div class="line">      <span class="keyword">break</span>；</div><div class="line">    <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">      move(<span class="string">'section2 h1'</span>).scale(<span class="number">0.7</span>).end();</div><div class="line">      move(<span class="string">'section p'</span>).set(<span class="string">'margin-top'</span>,<span class="string">'20%'</span>).end();          <span class="comment">//缩小动画</span></div><div class="line">      <span class="keyword">break</span>；</div><div class="line">    <span class="keyword">case</span> <span class="number">3</span>:</div><div class="line">      move(<span class="string">'section3 h1'</span>).set(<span class="string">'margin-left'</span>,<span class="string">'20%'</span>) .end();</div><div class="line">      move(<span class="string">'section3 p'</span>).set(<span class="string">'margin-left'</span>,<span class="string">'20%'</span>).end();        <span class="comment">//飞入动画</span></div><div class="line">      <span class="keyword">break</span>；</div><div class="line">    <span class="keyword">case</span> <span class="number">4</span>：</div><div class="line">      move(<span class="string">'.section4 img.primary'</span>).rotate(<span class="number">360</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        move(<span class="string">'.section4 img.sport'</span>).rotate(<span class="number">360</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//利用end（）可接受回调函数的方法实现动画的先后顺序(依次旋转动画 )</span></div><div class="line">          move.(<span class="string">'.section4 img.eition'</span>).rotate(<span class="number">360</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">            move(<span class="string">'.section4 img.primary'</span>).scale(<span class="number">1.3</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">              move(<span class="string">'.section4 img.sport'</span>).scale(<span class="number">1.3</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                move.(<span class="string">'.section4 img.eition'</span>).scale(<span class="number">1.3</span>). end();</div><div class="line">              &#125;);</div><div class="line">            &#125;);</div><div class="line">          &#125;);</div><div class="line">        &#125;);</div><div class="line">      &#125;);</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">    defalut:</div><div class="line">      <span class="keyword">break</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在离开这个页面时用onLeave将afterLoad（）所做的设置还原，才能保证动画在每次进入到该页都可以显示
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">onLeave（link，index）&#123;</div><div class="line">  <span class="keyword">switch</span>（index）&#123;</div><div class="line">    <span class="keyword">case</span> <span class="number">1</span>：</div><div class="line">        <span class="keyword">break</span>；</div><div class="line">    ......</div><div class="line">    case <span class="number">4</span>：move（<span class="string">'section4 img.edition'</span>）.rotate(<span class="number">-360</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     move(<span class="string">'section4 img.sport'</span>).rotate(<span class="number">-360</span>).end(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     &#125;);</div><div class="line">    &#125;);</div><div class="line">        <span class="keyword">break</span>；</div><div class="line">    <span class="keyword">default</span>：</div><div class="line">        <span class="keyword">break</span>；</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jquery/" rel="tag"># jquery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/29/JS笔记/" rel="next" title="JS笔记">
+                <i class="fa fa-chevron-left"></i> JS笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/01/移动端/" rel="prev" title="移动端笔记">
+                移动端笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/11/30/fullpage/"
+     data-title="fullpage.js"
+     data-content=""
+     data-url="http://yoursite.com/2016/11/30/fullpage/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/30/fullpage/"
+           data-title="fullpage.js" data-url="http://yoursite.com/2016/11/30/fullpage/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohaziw2mb.bkt.clouddn.com/head.jpg"
+               alt="cynshow" />
+          <p class="site-author-name" itemprop="name">cynshow</p>
+          <p class="site-description motion-element" itemprop="description">陈燕妮的博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cynshow" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:511428688@qq.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://coding.net/u/cynshow" target="_blank" title="Coding">
+                  
+                    <i class="fa fa-fw fa-creative-commons"></i>
+                  
+                  Coding
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#fullPage-js介绍"><span class="nav-text">fullPage.js介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有："><span class="nav-text">1.是一个基于jQuery的插件，它能够很方便、很轻松的制作出全屏网站，主要功能有：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-获取方式："><span class="nav-text">2.获取方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-兼容性及大小、版本"><span class="nav-text">3.兼容性及大小、版本</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始使用"><span class="nav-text">开始使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入相关文件"><span class="nav-text">1.引入相关文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-页面的基本结构"><span class="nav-text">2.页面的基本结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-JavaScript"><span class="nav-text">3.JavaScript</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置项"><span class="nav-text">配置项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sectionsColor"><span class="nav-text">sectionsColor</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#controlArrows："><span class="nav-text">controlArrows：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#verticalCentered"><span class="nav-text">verticalCentered</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#resize"><span class="nav-text">resize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollingSpeed"><span class="nav-text">scrollingSpeed</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#anchors"><span class="nav-text">anchors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lockAnchors"><span class="nav-text">lockAnchors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加active类，-打开网页直接定位到此页面"><span class="nav-text">添加active类， 打开网页直接定位到此页面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#easing"><span class="nav-text">easing:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css3"><span class="nav-text">css3:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loopTop"><span class="nav-text">loopTop:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loopBottom："><span class="nav-text">loopBottom：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loopHorizontal："><span class="nav-text">loopHorizontal：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autoScrolling："><span class="nav-text">autoScrolling：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollBar："><span class="nav-text">scrollBar：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#paddingTop-paddingBottom："><span class="nav-text">paddingTop/paddingBottom：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fixedElements："><span class="nav-text">fixedElements：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#keyboardScrolling："><span class="nav-text">keyboardScrolling：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#touchSensitivity："><span class="nav-text">touchSensitivity：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#continuousVertical"><span class="nav-text">continuousVertical:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#animateAnchor："><span class="nav-text">animateAnchor：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#recordHistory"><span class="nav-text">recordHistory:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#menu："><span class="nav-text">menu：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#navigation"><span class="nav-text">navigation:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#navigationPosition："><span class="nav-text">navigationPosition：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#showActiveTooltip："><span class="nav-text">showActiveTooltip：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slidesNavigation："><span class="nav-text">slidesNavigation：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slidesNavPosition："><span class="nav-text">slidesNavPosition：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#scrollOverflow："><span class="nav-text">scrollOverflow：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sectionSelector："><span class="nav-text">sectionSelector：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slideSelector："><span class="nav-text">slideSelector：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法"><span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#moveSectionUp"><span class="nav-text">moveSectionUp():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveSectionDown"><span class="nav-text">moveSectionDown():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveTo-section-slide"><span class="nav-text">moveTo(section,slide):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#slientMoveTo-section-slide"><span class="nav-text">slientMoveTo(section,slide):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveSlideRight"><span class="nav-text">moveSlideRight():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#moveSlideLeft"><span class="nav-text">moveSlideLeft():</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setAutoScrolling-boolean"><span class="nav-text">setAutoScrolling(boolean):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setLockAnchors-boolean"><span class="nav-text">setLockAnchors(boolean):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setRecordHistory-boolean"><span class="nav-text">setRecordHistory(boolean):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setScrollingSpeed-milliseconds"><span class="nav-text">setScrollingSpeed(milliseconds):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setAllowScrolling-boolean-directions"><span class="nav-text">setAllowScrolling(boolean,[directions]):</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加或删除鼠标滚轮-滑动控制，"><span class="nav-text">添加或删除鼠标滚轮/滑动控制，</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#destroy-type"><span class="nav-text">destroy(type)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reBuild"><span class="nav-text">reBuild()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Lazy-Loading-延迟加载"><span class="nav-text">Lazy Loading 延迟加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#图片："><span class="nav-text">图片：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#视频："><span class="nav-text">视频：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回调"><span class="nav-text">回调</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#afterLoad-anchorLink-index"><span class="nav-text">afterLoad(anchorLink,index)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onLeave-index-nextIndex-direction"><span class="nav-text">onLeave(index,nextIndex,direction)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#afterRender"><span class="nav-text">afterRender()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#afterResize"><span class="nav-text">afterResize()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#afterSlideLoad-anchorLink-index-slideAnchor-slideIndex"><span class="nav-text">afterSlideLoad(anchorLink,index,slideAnchor,slideIndex)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#onSlideLeave-anchorLink，index，slideIndex，direction，nextSlideIndex"><span class="nav-text">onSlideLeave(anchorLink，index，slideIndex，direction，nextSlideIndex)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现效果"><span class="nav-text">实现效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cynshow</span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"cynblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("2JIDBBbCYmHb7JzupDtPUmsk-gzGzoHsz", "lPkccxNvPVw9GT8M7WTIlINI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
