@@ -129,7 +129,7 @@
 <meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/stop.png">
 <meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/fixed.png">
 <meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/chnageWidth.png">
-<meta property="og:updated_time" content="2016-12-12T15:57:02.501Z">
+<meta property="og:updated_time" content="2016-12-12T16:05:47.143Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作品">
 <meta name="twitter:description" content=".works-box{
@@ -388,6 +388,7 @@
   width:80%;
   background-color:#e5f1e7;
   box-sizing: border-box;
+  overflow:hidden;
 }
 .works-box .box-show a,
 .works-box .box-show img{
@@ -416,9 +417,10 @@
 	border:none;
 	font-size:15px;
 }
-@media all and (max-width:479px){
+@media all and (max-width:750px){
   .works-box li{
-  	width:246px;
+  	width:100%;
+  	margin-right:0;
     margin-top:20px;
   }
   .works-box li:nth-of-type(even){
