@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/12/01/应用笔记/index.html">
 <meta property="og:site_name" content="cyn">
 <meta property="og:description" content="1.响应式开发　　响应式开发：网页可以根据设备的类型、尺寸改变展示对应的效果，保证浏览效果　　一般用all（媒体查询）写，配合媒体特性　　PC端样式要写的好。兼容性用js处理，有个respond.js。可做优雅降级不影响使用。">
-<meta property="og:updated_time" content="2016-12-03T12:49:10.091Z">
+<meta property="og:updated_time" content="2016-12-08T07:00:09.710Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="应用笔记">
 <meta name="twitter:description" content="1.响应式开发　　响应式开发：网页可以根据设备的类型、尺寸改变展示对应的效果，保证浏览效果　　一般用all（媒体查询）写，配合媒体特性　　PC端样式要写的好。兼容性用js处理，有个respond.js。可做优雅降级不影响使用。">
@@ -216,16 +216,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-resume">
-          <a href="/resume" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            简历
           </a>
         </li>
       
@@ -529,17 +519,7 @@
 <li>.container 类用于 <strong>固定宽度</strong> 并支持响应式布局的容器。<br>.container-fluid 类用于 100% 宽度， <strong>占据全部视口</strong> （viewport）的容器。</li>
 <li>Bootstrap会在container里开头与结尾处插入before与after节点，记得覆盖掉</li>
 </ol>
-<h3 id="4-属性选择器"><a href="#4-属性选择器" class="headerlink" title="4.属性选择器"></a>4.属性选择器</h3><ul>
-<li><strong>E[attr]</strong>　　只使用属性名，但没有确定任何属性值   </li>
-<li><strong>E[attr=”value”]</strong>　　指定属性名，并指定了该属性的属性值   </li>
-<li><strong>E[attr~=”value”]</strong>　　指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“〜”不能不写   </li>
-<li><strong>E[attr^=”value”]</strong>　　指定了属性名，并且有属性值，属性值是<font color="blue">以value开头的</font>(从头开始匹配)</li>
-<li><strong>E[attr$=”value”]</strong>　　指定了属性名，并且有属性值，而且属性值是<font color="blue">以value结束的</font>(从尾开始匹配)</li>
-<li><strong>E[attr*=”value”]</strong>　　指定了属性名，并且有属性值，而且属值中<font color="blue">包含了value</font></li>
-<li><strong>E[attr|=”value”]</strong>　　指定了属性名，并且属性值<font color="blue">是value或者以“value-”开头的值</font>（比如说zh-cn）<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">  div&#123;</div><div class="line">  	height: 50px;</div><div class="line">  	background-color: pink;</div><div class="line">  	margin-bottom: 10px;</div><div class="line">  &#125;</div><div class="line">  div[data-id]&#123;</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-id="2"]&#123;</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId~="zhangsan"]&#123;    //属性为：data-userId="zhangsan 1"</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId^="z"]&#123;      //找到以z开头的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId$="wu"]&#123;     //找到以wu开头的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId*="n"]&#123;      //找到包含n的属性</div><div class="line">  	background-color: yellow;    </div><div class="line">  &#125;</div><div class="line">  div[data-id|="zh"]&#123;         //找到包含zh的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-cc"</span> <span class="attr">data-userId</span>=<span class="string">"zhangsan"</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-as"</span> <span class="attr">data-userId</span>=<span class="string">"lisi"</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-qq"</span> <span class="attr">data-userId</span>=<span class="string">"wangwu"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zhq-er"</span> <span class="attr">data-userId</span>=<span class="string">"zhaosi"</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-自定义字体-一般用于小图标"><a href="#5-自定义字体-一般用于小图标" class="headerlink" title="5.自定义字体(一般用于小图标)"></a>5.自定义字体(一般用于小图标)</h3><ol>
+<h3 id="4-自定义字体-一般用于小图标"><a href="#4-自定义字体-一般用于小图标" class="headerlink" title="4.自定义字体(一般用于小图标)"></a>4.自定义字体(一般用于小图标)</h3><ol>
 <li>在ai里画矢量图，再通过文字转换的软件转换成文字（Fontlab：制作图形文字编辑器 ）</li>
 <li>把自定义字体文件放在项目的服务器上，用户访问时会从服务器拉取字体文件进行页面的渲染</li>
 <li>在线字体转换web所用格式：<a href="http://www.fontsquirrel.com/fontface/generator" target="_blank" rel="external">http://www.fontsquirrel.com/fontface/generator</a></li>
@@ -552,7 +532,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="6-H5-forms"><a href="#6-H5-forms" class="headerlink" title="6.H5-forms"></a>6.H5-forms</h3><h4 id="新的输入型控件"><a href="#新的输入型控件" class="headerlink" title="新的输入型控件"></a>新的输入型控件</h4><ul>
+<h3 id="5-H5-forms"><a href="#5-H5-forms" class="headerlink" title="5.H5-forms"></a>5.H5-forms</h3><h4 id="新的输入型控件"><a href="#新的输入型控件" class="headerlink" title="新的输入型控件"></a>新的输入型控件</h4><ul>
 <li>email  :  电子邮箱文本框，跟普通的没什么区别<ul>
 <li>当输入不是邮箱的时候，验证通不过</li>
 <li>移动端的键盘会有变化（切换到全键盘）</li>
@@ -583,35 +563,70 @@
 <li>time  :  显示时间，不含时区</li>
 <li>date  :  显示日期</li>
 <li>week  :  显示周</li>
-<li>month  :  显示月<h4 id="新的表单特性和函数"><a href="#新的表单特性和函数" class="headerlink" title="新的表单特性和函数"></a>新的表单特性和函数</h4></li>
+<li>month  :  显示月</li>
+</ul>
+<h4 id="新的表单特性和函数"><a href="#新的表单特性和函数" class="headerlink" title="新的表单特性和函数"></a>新的表单特性和函数</h4><ul>
 <li>placeholder  :  输入框提示信息（输入内容时提示消失）</li>
-<li><p>autocomplete  :  是否保存用户输入值</p>
+<li><p>autocomplete  :  是否保存用户输入值(联想字)on/off</p>
 <pre><code>例：autocomplete=&quot;off&quot;
 </code></pre></li>
 <li><p>默认为on，关闭提示选择off</p>
 </li>
-<li>autofocus  :  指定表单获取输入焦点        刷新页面后自动获取焦点</li>
-<li><p>list和datalist  :  为输入框构造一个选择列表</p>
-<pre><code>&lt;select&gt;
-  &lt;option&gt;1&lt;/option&gt;
-  &lt;option&gt;2&lt;/option&gt;
-&lt;/select&gt;
-</code></pre></li>
-<li><p>list值为datalist标签的id</p>
-<pre><code>   例：&lt;input type=&quot;text&quot; list=&quot;miaov&quot; /&gt;
-&lt;datalist id=&quot;miaov&quot;&gt;
-    &lt;option value=&quot;javascript&quot;&gt;javascript&lt;/option&gt;
-    &lt;option value=&quot;html&quot;&gt;html&lt;/option&gt;
-    &lt;option value=&quot;css&quot;&gt;css&lt;/option&gt;
-&lt;/datalist&gt;
-</code></pre></li>
+<li>autofocus  :  指定表单获取输入焦点       （刷新页面后自动获取焦点）</li>
+<li><p>list和datalist  :  为输入框构造一个选择列表（list值为datalist标签的id）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 类似select --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 以下为list和datalist用法 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">list</span>=<span class="string">"valList"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"valList"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"javascript"</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"html"</span>&gt;</span>html<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"css"</span>&gt;</span>css<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
 <li><p>required  :  此项必填，不能为空</p>
 </li>
 <li>Pattern : 正则验证  pattern=”\d{1,5}“</li>
 <li><p>Formaction 在submit里定义提交地址</p>
 <pre><code>例：&lt;input type=&quot;submit&quot; value=&quot;保存&quot; formaction=&quot;http://www.baidu.com&quot; /&gt;
-</code></pre></li>
+</code></pre><h3 id="6-photoshop"><a href="#6-photoshop" class="headerlink" title="6.photoshop"></a>6.photoshop</h3></li>
+<li>单位：信息—如果width、height出现小数点就点击右上角——面板选项——鼠标坐标改为像素</li>
+<li>抠图小的图片保存为GIF（储存字节小），<font color="red">GIF与PNG-24</font>都比较常用</li>
+<li>前景色填充已选区域：<font color="red">alt+delet</font></li>
+<li>背景色填充已选区域：<font color="red">ctrl+delet</font></li>
+<li>取消选择区域：<font color="red">ctrl+d</font></li>
+<li>自由变换：已选区域后按<font color="red">ctrl+t</font></li>
+<li>工具栏隐藏&amp;显示：<font color="red">tab</font></li>
+<li>选中图层：<font color="red">ctrl+鼠标</font></li>
 </ul>
+<h3 id="7-canvas-定义在浏览器的画布"><a href="#7-canvas-定义在浏览器的画布" class="headerlink" title="7.canvas:定义在浏览器的画布"></a>7.canvas:定义在浏览器的画布</h3><ul>
+<li>HTML5中canvas画布在不指定宽高时，默认为宽300，高150；</li>
+<li>建议设置canvas宽高采用 <code>&lt;canvas id=&quot;canvas&quot; width=&quot;1024&quot; height=&quot;768&quot;/&gt;</code>方式,因为CSS方式设置的宽高，默认为画布显示的大小<ul>
+<li>canvas包括内里显示图画分辨率的大小所以用内嵌方式写，且不用写单位</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvs'</span>)</div><div class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>)           <span class="comment">//用getContext的方法获得绘图的上下文环境</span></div><div class="line"><span class="comment">//使用context进行绘制</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="1-解决浏览器对canvas的兼容问题"><a href="#1-解决浏览器对canvas的兼容问题" class="headerlink" title="1.解决浏览器对canvas的兼容问题"></a>1.解决浏览器对canvas的兼容问题</h4><ul>
+<li><p>方式1：在canvas中加入提示语，在浏览器不支持时，提示语才显示，如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"1024"</span> <span class="attr">height</span>=<span class="string">"768"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid #aaa;display: block;margin: 50px auto"</span>&gt;</span></div><div class="line">  当浏览器不支持canvas，请更新浏览器后再试</div><div class="line">  <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>方式2：在JavaScript中加入以下语句　</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(canvas.getContext(<span class="string">"2d"</span>))&#123;</div><div class="line">  <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  alert(<span class="string">"当浏览器不支持canvas，请更新浏览器后再试"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-JavaScript操作画布"><a href="#2-JavaScript操作画布" class="headerlink" title="2.JavaScript操作画布"></a>2.JavaScript操作画布</h4><p>context.canvas：cantext有个canvas的方法，此方法可以找到上下文绘图环境对应的画布，从而调用画布的其余属性
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);  </div><div class="line"></div><div class="line">	canvas.width = <span class="number">1024</span>;    <span class="comment">//设置canvas大小</span></div><div class="line">	canvas.height=<span class="number">768</span>;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>)    <span class="comment">//获得绘图的上下文环境，提供了绘制接口</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="3-绘制直线、多边型和七巧板"><a href="#3-绘制直线、多边型和七巧板" class="headerlink" title="3.绘制直线、多边型和七巧板"></a>3.绘制直线、多边型和七巧板</h4><p>canvas基于状态绘图：先设置绘图的状态，再调用函数进行具体绘制   </p>
+<h5 id="Draw-a-line"><a href="#Draw-a-line" class="headerlink" title="Draw a line"></a>Draw a line</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">设置绘图状态</div><div class="line">context.beginPath();             <span class="comment">//开始绘制</span></div><div class="line">context.moveTo(<span class="number">100</span>,<span class="number">100</span>);        <span class="comment">//笔尖放在坐标100，100的位置</span></div><div class="line">context.lineTo(<span class="number">700</span>,<span class="number">700</span>);          <span class="comment">//设置划线终点</span></div><div class="line">context.lineTo(<span class="number">100</span>,<span class="number">700</span>);  </div><div class="line">context.moveTo(<span class="number">100</span>,<span class="number">100</span>);          (绘制了一个三角形)</div><div class="line">context.closePath();             <span class="comment">//结束绘制</span></div><div class="line"></div><div class="line">context.lineWidth=<span class="number">5</span>;                            <span class="comment">//设置线条宽度</span></div><div class="line">context.strokeStyle = <span class="string">"#005588"</span>;         <span class="comment">//设置线条样式，主要用于设置颜色</span></div><div class="line">context.fillStyle = <span class="string">"rgb(2,100,300)"</span>;      <span class="comment">//定义填充颜色</span></div><div class="line"></div><div class="line">具体绘制</div><div class="line">context.stroke();                  <span class="comment">//绘制线条</span></div><div class="line">context.fill();            <span class="comment">//绘制填充的颜色块</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>例子：七巧板</p>
+</blockquote>
+<h5 id="绘制弧、圆"><a href="#绘制弧、圆" class="headerlink" title="绘制弧、圆"></a>绘制弧、圆</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">context.arc(</div><div class="line">centerx,centery,radius,       <span class="comment">//圆心横坐标、纵坐标、半径</span></div><div class="line">startingAngle,endingAngle,     <span class="comment">//起始弧度值、结束弧度值</span></div><div class="line">anticlockwise=<span class="literal">false</span>           <span class="comment">//绘制方向（默认false顺时针，true为逆时针）</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>例子：context.arc(300,300,200,0,1.5*<font color="red">Math.PI</font>,true);</p>
+</blockquote>
+<h5 id="封闭-不封闭"><a href="#封闭-不封闭" class="headerlink" title="封闭/不封闭"></a>封闭/不封闭</h5><ul>
+<li>context.closePath();<strong>会让自动让不封闭的图形首尾用直线相连，有fill也可以不写</strong></li>
+<li>如果想保持不封闭状态就只写context.beginPath();（可单独使用 ）</li>
+<li>用context.fill(); 执行绘画时，context.closePath();将不起作用，写不写都将封闭<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">context.fillStyle=<span class="string">"#005588"</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;<span class="number">10</span>;i ++ )&#123;</div><div class="line">     context.beginPath();</div><div class="line">     context.arc( <span class="number">50</span> + i*<span class="number">100</span> , <span class="number">180</span> , <span class="number">40</span> , <span class="number">0</span> , <span class="number">2</span>*<span class="built_in">Math</span>.PI*(i+<span class="number">1</span>)/<span class="number">10</span>);</div><div class="line"></div><div class="line">     <span class="comment">/*context.closePath();*/</span>          (封闭/不封闭)</div><div class="line">     context.stroke();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>例子：绘制弧线</p>
+</blockquote>
 
       
     </div>
@@ -743,7 +758,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -760,7 +775,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -830,7 +845,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-响应式开发"><span class="nav-text">1.响应式开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·媒体查询（访问的设备）"><span class="nav-text">·媒体查询（访问的设备）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·媒体特性-设备的尺寸"><span class="nav-text">·媒体特性(设备的尺寸)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·关键字"><span class="nav-text">·关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·样式表引入方法"><span class="nav-text">·样式表引入方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·常规尺寸（可自定义）"><span class="nav-text">·常规尺寸（可自定义）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-弹性盒模型"><span class="nav-text">2.弹性盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·flex父级的设置"><span class="nav-text">·flex父级的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·flex子元素相关属性"><span class="nav-text">·flex子元素相关属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Bootstrap"><span class="nav-text">3.Bootstrap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·栅格系统"><span class="nav-text">·栅格系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-属性选择器"><span class="nav-text">4.属性选择器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-自定义字体-一般用于小图标"><span class="nav-text">5.自定义字体(一般用于小图标)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-H5-forms"><span class="nav-text">6.H5-forms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新的输入型控件"><span class="nav-text">新的输入型控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新的表单特性和函数"><span class="nav-text">新的表单特性和函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-响应式开发"><span class="nav-text">1.响应式开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·媒体查询（访问的设备）"><span class="nav-text">·媒体查询（访问的设备）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·媒体特性-设备的尺寸"><span class="nav-text">·媒体特性(设备的尺寸)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·关键字"><span class="nav-text">·关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·样式表引入方法"><span class="nav-text">·样式表引入方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·常规尺寸（可自定义）"><span class="nav-text">·常规尺寸（可自定义）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-弹性盒模型"><span class="nav-text">2.弹性盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·flex父级的设置"><span class="nav-text">·flex父级的设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·flex子元素相关属性"><span class="nav-text">·flex子元素相关属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Bootstrap"><span class="nav-text">3.Bootstrap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·栅格系统"><span class="nav-text">·栅格系统</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-自定义字体-一般用于小图标"><span class="nav-text">4.自定义字体(一般用于小图标)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-H5-forms"><span class="nav-text">5.H5-forms</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#新的输入型控件"><span class="nav-text">新的输入型控件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#新的表单特性和函数"><span class="nav-text">新的表单特性和函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-photoshop"><span class="nav-text">6.photoshop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-canvas-定义在浏览器的画布"><span class="nav-text">7.canvas:定义在浏览器的画布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-解决浏览器对canvas的兼容问题"><span class="nav-text">1.解决浏览器对canvas的兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-JavaScript操作画布"><span class="nav-text">2.JavaScript操作画布</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-绘制直线、多边型和七巧板"><span class="nav-text">3.绘制直线、多边型和七巧板</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Draw-a-line"><span class="nav-text">Draw a line</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#绘制弧、圆"><span class="nav-text">绘制弧、圆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#封闭-不封闭"><span class="nav-text">封闭/不封闭</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

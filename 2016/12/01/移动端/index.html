@@ -106,7 +106,7 @@
 点、points：虚拟单位   
 像素比：通过像素比可以改变屏幕显示的质量   
 渲染像素：点*像">
-<meta property="og:updated_time" content="2016-12-03T09:30:03.083Z">
+<meta property="og:updated_time" content="2016-12-05T09:13:46.958Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="移动端笔记">
 <meta name="twitter:description" content="1.移动端笔记　　移动端指手机、平板;　　应用方法做优雅降级，支持可看到最好效果，不支持也没太大影响
@@ -240,16 +240,6 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-resume">
-          <a href="/resume" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            简历
           </a>
         </li>
       
@@ -501,6 +491,25 @@
 <li>input设置初始样式，没有border   </li>
 <li>input圆角 border-radius:6px;     6px为弧度区域宽</li>
 </ol>
+<h4 id="·限制宽度"><a href="#·限制宽度" class="headerlink" title="·限制宽度"></a>·限制宽度</h4><ul>
+<li>在移动端添加事件必须用addEventListener事件监听方法</li>
+<li>拉伸宽度&amp;横竖屏切换，自动调节</li>
+<li>设定屏幕最大宽幅</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">setSize();</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, setSize, <span class="literal">false</span>);</div><div class="line"><span class="comment">// window.addEventListener("orientationchange", setSize, false);  横竖屏切换，作用与上面相同</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSize</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> html = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="keyword">var</span> width = html.getBoundingClientRect().width;</div><div class="line">    <span class="comment">//当宽度大于540的时候最大宽度为540，否则该是多少就多少。</span></div><div class="line">    width = width &gt; <span class="number">540</span> ? <span class="number">540</span> : width;</div><div class="line">    html.style.fontSize = width / <span class="number">16</span> + <span class="string">"px"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="·touch事件"><a href="#·touch事件" class="headerlink" title="·touch事件"></a>·touch事件</h4><ul>
+<li>event.preventDefault();　　阻止默认事件</li>
+<li>touchstart　　当手指触摸屏幕时触发</li>
+<li>touchmove　　当手指在屏幕上滑动时连续触发</li>
+<li>touchend　　当手指从屏幕上移开时触发</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</div><div class="line">div.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  event.preventDefault();     <span class="comment">//取消默认时间</span></div><div class="line">  div.style.background-color = <span class="string">'red'</span>;</div><div class="line">&#125;,<span class="literal">false</span>)</div></pre></td></tr></table></figure>
+<h4 id="·touch事件对象"><a href="#·touch事件对象" class="headerlink" title="·touch事件对象"></a>·touch事件对象</h4><ul>
+<li>touches　　当前屏幕上所有触摸点的列表</li>
+<li>targetTouches　　当前对象上所有的触摸点的列表</li>
+<li>changedTouches　　涉及当前事件的触摸点的列表(最开始触摸的数量)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</div><div class="line">div.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  event.preventDefault();     <span class="comment">//取消默认时间</span></div><div class="line">  div.style.background-color = <span class="string">'red'</span>;</div><div class="line">  <span class="built_in">console</span>.log(event);</div><div class="line">  <span class="built_in">console</span>.log(event.touches.length);    <span class="comment">//触摸点击数量</span></div><div class="line">  <span class="built_in">console</span>.log(event.targetTouches.length);    <span class="comment">//触摸点击数量</span></div><div class="line">  <span class="built_in">console</span>.log(event.changedTouches.length);   <span class="comment">//第一次触摸的数量</span></div><div class="line">&#125;,<span class="literal">false</span>)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -636,7 +645,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -653,7 +662,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -723,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-移动端笔记"><span class="nav-text">1.移动端笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·本地服务器搭建"><span class="nav-text">·本地服务器搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·像素比"><span class="nav-text">·像素比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·viewport（视口）"><span class="nav-text">·viewport（视口）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·布局步骤"><span class="nav-text">·布局步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·布局单位rem"><span class="nav-text">·布局单位rem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·动态设置字体大小js布局"><span class="nav-text">·动态设置字体大小js布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·代码小总结"><span class="nav-text">·代码小总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·动态设置字体、图片大小"><span class="nav-text">·动态设置字体、图片大小</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-默认样式处理"><span class="nav-text">1. 默认样式处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用less"><span class="nav-text">2. 使用less</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-图片尺寸自适应"><span class="nav-text">3. 图片尺寸自适应</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·input兼容问题"><span class="nav-text">·input兼容问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-移动端笔记"><span class="nav-text">1.移动端笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#·本地服务器搭建"><span class="nav-text">·本地服务器搭建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·像素比"><span class="nav-text">·像素比</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·viewport（视口）"><span class="nav-text">·viewport（视口）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·布局步骤"><span class="nav-text">·布局步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·布局单位rem"><span class="nav-text">·布局单位rem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·动态设置字体大小js布局"><span class="nav-text">·动态设置字体大小js布局</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·代码小总结"><span class="nav-text">·代码小总结</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·动态设置字体、图片大小"><span class="nav-text">·动态设置字体、图片大小</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-默认样式处理"><span class="nav-text">1. 默认样式处理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-使用less"><span class="nav-text">2. 使用less</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-图片尺寸自适应"><span class="nav-text">3. 图片尺寸自适应</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·input兼容问题"><span class="nav-text">·input兼容问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·限制宽度"><span class="nav-text">·限制宽度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·touch事件"><span class="nav-text">·touch事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#·touch事件对象"><span class="nav-text">·touch事件对象</span></a></li></ol></li></ol></div>
             
 
           </div>

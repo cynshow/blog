@@ -84,16 +84,69 @@
 
 
 
-<meta name="description" content="陈燕妮的博客">
+<meta name="description" content=".works-box{
+  width: 100%;
+  padding:0;
+}
+.works-box ul{
+  display:block;
+  padding:0;
+}
+.works-box li{
+	display:inline-block;
+  border:1px solid #ececec;
+  height:210px;
+  width:45%;
+  box-sizing:">
 <meta property="og:type" content="website">
 <meta property="og:title" content="作品">
 <meta property="og:url" content="http://yoursite.com/works/index.html">
 <meta property="og:site_name" content="cyn">
-<meta property="og:description" content="陈燕妮的博客">
-<meta property="og:updated_time" content="2016-11-28T08:03:05.249Z">
+<meta property="og:description" content=".works-box{
+  width: 100%;
+  padding:0;
+}
+.works-box ul{
+  display:block;
+  padding:0;
+}
+.works-box li{
+	display:inline-block;
+  border:1px solid #ececec;
+  height:210px;
+  width:45%;
+  box-sizing:">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/txdm.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/componentMobile.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/canvasClock.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/xiaomi.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/bootstrapFlex.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/blog_test.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/scrollBanner.jpg">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/mobile_mall.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/tabs.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/table.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/stop.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/fixed.png">
+<meta property="og:image" content="http://ohaziw2mb.bkt.clouddn.com/chnageWidth.png">
+<meta property="og:updated_time" content="2016-12-12T15:57:02.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="作品">
-<meta name="twitter:description" content="陈燕妮的博客">
+<meta name="twitter:description" content=".works-box{
+  width: 100%;
+  padding:0;
+}
+.works-box ul{
+  display:block;
+  padding:0;
+}
+.works-box li{
+	display:inline-block;
+  border:1px solid #ececec;
+  height:210px;
+  width:45%;
+  box-sizing:">
+<meta name="twitter:image" content="http://ohaziw2mb.bkt.clouddn.com/txdm.png">
 
 
 
@@ -226,16 +279,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-resume">
-          <a href="/resume" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            简历
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-works">
           <a href="/works" rel="section">
             
@@ -299,6 +342,240 @@
     
     
       
+<style>
+.works-box{
+  width: 100%;
+  padding:0;
+}
+.works-box ul{
+  display:block;
+  padding:0;
+}
+.works-box li{
+	display:inline-block;
+  border:1px solid #ececec;
+  height:210px;
+  width:45%;
+  box-sizing: border-box;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  transition:all .15s ease-out;
+}
+.works-box li:hover {
+	box-shadow: 0 3px 3px rgba(0,0,0,.3)
+}
+.works-box li:nth-of-type(even){
+	margin-right:0;
+}
+.box-title{
+  height:130px;
+  width:100%;
+}
+.works-box h3{
+  margin:0;
+  float:left;
+  height:130px;
+  width:20%;
+  padding-left:10px;
+  padding-top:4px;
+  background-color:#f5f7f9;
+  box-sizing: border-box;
+  font-size:22px;
+}
+.works-box .box-show{
+  float:right;
+  height:130px;
+  width:80%;
+  background-color:#e5f1e7;
+  box-sizing: border-box;
+}
+.works-box .box-show a,
+.works-box .box-show img{
+	display:block;
+	width:100%;
+}
+.box-item{
+  border-top:1px solid #ececec;
+  padding-left:10px;
+  padding-top:6px;
+}
+.works-box h6{
+  margin:0;
+}
+.box-item p{
+  margin:0;
+  margin-top:8px;
+  width:220px;
+  height:32px;
+  font-size:12px;
+  color:#b2b2b2;
+  line-height:16px;
+  overflow:hidden;
+}
+.works-box li a {
+	border:none;
+	font-size:15px;
+}
+@media all and (max-width:479px){
+  .works-box li{
+  	width:246px;
+    margin-top:20px;
+  }
+  .works-box li:nth-of-type(even){
+    margin-left:0px;
+  }
+}
+</style>
+<div class="works-box">
+  <h2>作品列表</h2>
+  <p>作品链接放在github上，加载可能会慢</p>
+  <ul>
+    <li>
+      <div class="box-title">
+        <h3>01</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/qqdm/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/txdm.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/qqdm/" target="_blank" rel="external">仿腾讯动漫主页练习</a></h6>
+        <p>原生js编写腾讯动漫主页练习 </p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>02</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/mobileComponent/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/componentMobile.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/mobileComponent/" target="_blank" rel="external">移动端组件练习</a></h6>
+        <p>cavas制作表格，jq封装组件练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>03</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/canvas-course/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/canvasClock.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/canvas-course/" target="_blank" rel="external"> canvas时钟倒计时</a></h6>
+        <p>canvas制作的绚丽时钟倒计时练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>04</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/xiaomi/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/xiaomi.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/xiaomi/" target="_blank" rel="external">小米官网布局练习</a></h6>
+        <p>小米官网布局练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>05</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/bootstrapFlex/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/bootstrapFlex.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/bootstrapFlex/" target="_blank" rel="external">bootstrap和flex盒模型布局练习</a></h6>
+        <p>bootstrap和flex盒模型布局练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>06</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/blogText/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/blog_test.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/blogText/" target="_blank" rel="external">pc端布局练习</a></h6>
+        <p>pc端布局练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>07</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/scrollBaner/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/scrollBanner.jpg"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/scrollBaner/" target="_blank" rel="external">轮播图练习</a></h6>
+        <p>轮播图练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>08</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/mobileMall/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/mobile_mall.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/mobileMall/" target="_blank" rel="external">移动端布局练习</a></h6>
+        <p>移动端布局练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>09</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/tabs/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/tabs.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/tabs/" target="_blank" rel="external">选项卡练习</a></h6>
+        <p>选项卡练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>10</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/table/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/table.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/table/" target="_blank" rel="external">表格增删练习</a></h6>
+        <p>表格增删练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>11</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/stop/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/stop.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/stop/" target="_blank" rel="external">点击停止运动练习</a></h6>
+        <p>点击停止运动练习/p>
+      </p></div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>12</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/fixed/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/fixed.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/fixed/" target="_blank" rel="external">悬浮框练习</a></h6>
+        <p>悬浮框练习</p>
+      </div>
+    </li>
+    
+    <li>
+      <div class="box-title">
+        <h3>13</h3>
+        <div class="box-show"><a href="https://cynshow.github.io/changeWidth/" target="_blank" rel="external"><img src="http://ohaziw2mb.bkt.clouddn.com/chnageWidth.png"></a></div>
+      </div>
+      <div class="box-item">
+        <h6><a href="https://cynshow.github.io/changeWidth/" target="_blank" rel="external">改变宽度练习</a></h6>
+        <p>改变宽度js练习</p>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
     
   </div>
 
@@ -308,6 +585,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="works/index.html"
+           data-title="作品" data-url="http://yoursite.com/works/index.html">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -339,7 +624,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -356,7 +641,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

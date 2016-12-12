@@ -137,17 +137,7 @@
 <li>.container 类用于 <strong>固定宽度</strong> 并支持响应式布局的容器。<br>.container-fluid 类用于 100% 宽度， <strong>占据全部视口</strong> （viewport）的容器。</li>
 <li>Bootstrap会在container里开头与结尾处插入before与after节点，记得覆盖掉</li>
 </ol>
-<h3 id="4-属性选择器"><a href="#4-属性选择器" class="headerlink" title="4.属性选择器"></a>4.属性选择器</h3><ul>
-<li><strong>E[attr]</strong>　　只使用属性名，但没有确定任何属性值   </li>
-<li><strong>E[attr=”value”]</strong>　　指定属性名，并指定了该属性的属性值   </li>
-<li><strong>E[attr~=”value”]</strong>　　指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“〜”不能不写   </li>
-<li><strong>E[attr^=”value”]</strong>　　指定了属性名，并且有属性值，属性值是<font color="blue">以value开头的</font>(从头开始匹配)</li>
-<li><strong>E[attr$=”value”]</strong>　　指定了属性名，并且有属性值，而且属性值是<font color="blue">以value结束的</font>(从尾开始匹配)</li>
-<li><strong>E[attr*=”value”]</strong>　　指定了属性名，并且有属性值，而且属值中<font color="blue">包含了value</font></li>
-<li><strong>E[attr|=”value”]</strong>　　指定了属性名，并且属性值<font color="blue">是value或者以“value-”开头的值</font>（比如说zh-cn）<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">  div&#123;</div><div class="line">  	height: 50px;</div><div class="line">  	background-color: pink;</div><div class="line">  	margin-bottom: 10px;</div><div class="line">  &#125;</div><div class="line">  div[data-id]&#123;</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-id="2"]&#123;</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId~="zhangsan"]&#123;    //属性为：data-userId="zhangsan 1"</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId^="z"]&#123;      //找到以z开头的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId$="wu"]&#123;     //找到以wu开头的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId*="n"]&#123;      //找到包含n的属性</div><div class="line">  	background-color: yellow;    </div><div class="line">  &#125;</div><div class="line">  div[data-id|="zh"]&#123;         //找到包含zh的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-cc"</span> <span class="attr">data-userId</span>=<span class="string">"zhangsan"</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-as"</span> <span class="attr">data-userId</span>=<span class="string">"lisi"</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-qq"</span> <span class="attr">data-userId</span>=<span class="string">"wangwu"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zhq-er"</span> <span class="attr">data-userId</span>=<span class="string">"zhaosi"</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5-自定义字体-一般用于小图标"><a href="#5-自定义字体-一般用于小图标" class="headerlink" title="5.自定义字体(一般用于小图标)"></a>5.自定义字体(一般用于小图标)</h3><ol>
+<h3 id="4-自定义字体-一般用于小图标"><a href="#4-自定义字体-一般用于小图标" class="headerlink" title="4.自定义字体(一般用于小图标)"></a>4.自定义字体(一般用于小图标)</h3><ol>
 <li>在ai里画矢量图，再通过文字转换的软件转换成文字（Fontlab：制作图形文字编辑器 ）</li>
 <li>把自定义字体文件放在项目的服务器上，用户访问时会从服务器拉取字体文件进行页面的渲染</li>
 <li>在线字体转换web所用格式：<a href="http://www.fontsquirrel.com/fontface/generator" target="_blank" rel="external">http://www.fontsquirrel.com/fontface/generator</a></li>
@@ -160,7 +150,7 @@
 </ul>
 </li>
 </ol>
-<h3 id="6-H5-forms"><a href="#6-H5-forms" class="headerlink" title="6.H5-forms"></a>6.H5-forms</h3><h4 id="新的输入型控件"><a href="#新的输入型控件" class="headerlink" title="新的输入型控件"></a>新的输入型控件</h4><ul>
+<h3 id="5-H5-forms"><a href="#5-H5-forms" class="headerlink" title="5.H5-forms"></a>5.H5-forms</h3><h4 id="新的输入型控件"><a href="#新的输入型控件" class="headerlink" title="新的输入型控件"></a>新的输入型控件</h4><ul>
 <li>email  :  电子邮箱文本框，跟普通的没什么区别<ul>
 <li>当输入不是邮箱的时候，验证通不过</li>
 <li>移动端的键盘会有变化（切换到全键盘）</li>
@@ -191,35 +181,70 @@
 <li>time  :  显示时间，不含时区</li>
 <li>date  :  显示日期</li>
 <li>week  :  显示周</li>
-<li>month  :  显示月<h4 id="新的表单特性和函数"><a href="#新的表单特性和函数" class="headerlink" title="新的表单特性和函数"></a>新的表单特性和函数</h4></li>
+<li>month  :  显示月</li>
+</ul>
+<h4 id="新的表单特性和函数"><a href="#新的表单特性和函数" class="headerlink" title="新的表单特性和函数"></a>新的表单特性和函数</h4><ul>
 <li>placeholder  :  输入框提示信息（输入内容时提示消失）</li>
-<li><p>autocomplete  :  是否保存用户输入值</p>
+<li><p>autocomplete  :  是否保存用户输入值(联想字)on/off</p>
 <pre><code>例：autocomplete=&quot;off&quot;
 </code></pre></li>
 <li><p>默认为on，关闭提示选择off</p>
 </li>
-<li>autofocus  :  指定表单获取输入焦点        刷新页面后自动获取焦点</li>
-<li><p>list和datalist  :  为输入框构造一个选择列表</p>
-<pre><code>&lt;select&gt;
-  &lt;option&gt;1&lt;/option&gt;
-  &lt;option&gt;2&lt;/option&gt;
-&lt;/select&gt;
-</code></pre></li>
-<li><p>list值为datalist标签的id</p>
-<pre><code>   例：&lt;input type=&quot;text&quot; list=&quot;miaov&quot; /&gt;
-&lt;datalist id=&quot;miaov&quot;&gt;
-    &lt;option value=&quot;javascript&quot;&gt;javascript&lt;/option&gt;
-    &lt;option value=&quot;html&quot;&gt;html&lt;/option&gt;
-    &lt;option value=&quot;css&quot;&gt;css&lt;/option&gt;
-&lt;/datalist&gt;
-</code></pre></li>
+<li>autofocus  :  指定表单获取输入焦点       （刷新页面后自动获取焦点）</li>
+<li><p>list和datalist  :  为输入框构造一个选择列表（list值为datalist标签的id）</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 类似select --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">option</span>&gt;</span>2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 以下为list和datalist用法 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">list</span>=<span class="string">"valList"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"valList"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"javascript"</span>&gt;</span>javascript<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"html"</span>&gt;</span>html<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">"css"</span>&gt;</span>css<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
 <li><p>required  :  此项必填，不能为空</p>
 </li>
 <li>Pattern : 正则验证  pattern=”\d{1,5}“</li>
 <li><p>Formaction 在submit里定义提交地址</p>
 <pre><code>例：&lt;input type=&quot;submit&quot; value=&quot;保存&quot; formaction=&quot;http://www.baidu.com&quot; /&gt;
-</code></pre></li>
+</code></pre><h3 id="6-photoshop"><a href="#6-photoshop" class="headerlink" title="6.photoshop"></a>6.photoshop</h3></li>
+<li>单位：信息—如果width、height出现小数点就点击右上角——面板选项——鼠标坐标改为像素</li>
+<li>抠图小的图片保存为GIF（储存字节小），<font color="red">GIF与PNG-24</font>都比较常用</li>
+<li>前景色填充已选区域：<font color="red">alt+delet</font></li>
+<li>背景色填充已选区域：<font color="red">ctrl+delet</font></li>
+<li>取消选择区域：<font color="red">ctrl+d</font></li>
+<li>自由变换：已选区域后按<font color="red">ctrl+t</font></li>
+<li>工具栏隐藏&amp;显示：<font color="red">tab</font></li>
+<li>选中图层：<font color="red">ctrl+鼠标</font></li>
 </ul>
+<h3 id="7-canvas-定义在浏览器的画布"><a href="#7-canvas-定义在浏览器的画布" class="headerlink" title="7.canvas:定义在浏览器的画布"></a>7.canvas:定义在浏览器的画布</h3><ul>
+<li>HTML5中canvas画布在不指定宽高时，默认为宽300，高150；</li>
+<li>建议设置canvas宽高采用 <code>&lt;canvas id=&quot;canvas&quot; width=&quot;1024&quot; height=&quot;768&quot;/&gt;</code>方式,因为CSS方式设置的宽高，默认为画布显示的大小<ul>
+<li>canvas包括内里显示图画分辨率的大小所以用内嵌方式写，且不用写单位</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">'canvs'</span>)</div><div class="line"><span class="keyword">var</span> context = canvas.getContext(<span class="string">'2d'</span>)           <span class="comment">//用getContext的方法获得绘图的上下文环境</span></div><div class="line"><span class="comment">//使用context进行绘制</span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="1-解决浏览器对canvas的兼容问题"><a href="#1-解决浏览器对canvas的兼容问题" class="headerlink" title="1.解决浏览器对canvas的兼容问题"></a>1.解决浏览器对canvas的兼容问题</h4><ul>
+<li><p>方式1：在canvas中加入提示语，在浏览器不支持时，提示语才显示，如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">width</span>=<span class="string">"1024"</span> <span class="attr">height</span>=<span class="string">"768"</span> <span class="attr">style</span>=<span class="string">"border: 1px solid #aaa;display: block;margin: 50px auto"</span>&gt;</span></div><div class="line">  当浏览器不支持canvas，请更新浏览器后再试</div><div class="line">  <span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>方式2：在JavaScript中加入以下语句　</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(canvas.getContext(<span class="string">"2d"</span>))&#123;</div><div class="line">  <span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>);</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">  alert(<span class="string">"当浏览器不支持canvas，请更新浏览器后再试"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2-JavaScript操作画布"><a href="#2-JavaScript操作画布" class="headerlink" title="2.JavaScript操作画布"></a>2.JavaScript操作画布</h4><p>context.canvas：cantext有个canvas的方法，此方法可以找到上下文绘图环境对应的画布，从而调用画布的其余属性
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">"canvas"</span>);  </div><div class="line"></div><div class="line">	canvas.width = <span class="number">1024</span>;    <span class="comment">//设置canvas大小</span></div><div class="line">	canvas.height=<span class="number">768</span>;</div><div class="line"></div><div class="line">	<span class="keyword">var</span> context = canvas.getContext(<span class="string">"2d"</span>)    <span class="comment">//获得绘图的上下文环境，提供了绘制接口</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="3-绘制直线、多边型和七巧板"><a href="#3-绘制直线、多边型和七巧板" class="headerlink" title="3.绘制直线、多边型和七巧板"></a>3.绘制直线、多边型和七巧板</h4><p>canvas基于状态绘图：先设置绘图的状态，再调用函数进行具体绘制   </p>
+<h5 id="Draw-a-line"><a href="#Draw-a-line" class="headerlink" title="Draw a line"></a>Draw a line</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">设置绘图状态</div><div class="line">context.beginPath();             <span class="comment">//开始绘制</span></div><div class="line">context.moveTo(<span class="number">100</span>,<span class="number">100</span>);        <span class="comment">//笔尖放在坐标100，100的位置</span></div><div class="line">context.lineTo(<span class="number">700</span>,<span class="number">700</span>);          <span class="comment">//设置划线终点</span></div><div class="line">context.lineTo(<span class="number">100</span>,<span class="number">700</span>);  </div><div class="line">context.moveTo(<span class="number">100</span>,<span class="number">100</span>);          (绘制了一个三角形)</div><div class="line">context.closePath();             <span class="comment">//结束绘制</span></div><div class="line"></div><div class="line">context.lineWidth=<span class="number">5</span>;                            <span class="comment">//设置线条宽度</span></div><div class="line">context.strokeStyle = <span class="string">"#005588"</span>;         <span class="comment">//设置线条样式，主要用于设置颜色</span></div><div class="line">context.fillStyle = <span class="string">"rgb(2,100,300)"</span>;      <span class="comment">//定义填充颜色</span></div><div class="line"></div><div class="line">具体绘制</div><div class="line">context.stroke();                  <span class="comment">//绘制线条</span></div><div class="line">context.fill();            <span class="comment">//绘制填充的颜色块</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>例子：七巧板</p>
+</blockquote>
+<h5 id="绘制弧、圆"><a href="#绘制弧、圆" class="headerlink" title="绘制弧、圆"></a>绘制弧、圆</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">context.arc(</div><div class="line">centerx,centery,radius,       <span class="comment">//圆心横坐标、纵坐标、半径</span></div><div class="line">startingAngle,endingAngle,     <span class="comment">//起始弧度值、结束弧度值</span></div><div class="line">anticlockwise=<span class="literal">false</span>           <span class="comment">//绘制方向（默认false顺时针，true为逆时针）</span></div><div class="line">)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>例子：context.arc(300,300,200,0,1.5*<font color="red">Math.PI</font>,true);</p>
+</blockquote>
+<h5 id="封闭-不封闭"><a href="#封闭-不封闭" class="headerlink" title="封闭/不封闭"></a>封闭/不封闭</h5><ul>
+<li>context.closePath();<strong>会让自动让不封闭的图形首尾用直线相连，有fill也可以不写</strong></li>
+<li>如果想保持不封闭状态就只写context.beginPath();（可单独使用 ）</li>
+<li>用context.fill(); 执行绘画时，context.closePath();将不起作用，写不写都将封闭<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">context.fillStyle=<span class="string">"#005588"</span>;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i =<span class="number">0</span>;i&lt;<span class="number">10</span>;i ++ )&#123;</div><div class="line">     context.beginPath();</div><div class="line">     context.arc( <span class="number">50</span> + i*<span class="number">100</span> , <span class="number">180</span> , <span class="number">40</span> , <span class="number">0</span> , <span class="number">2</span>*<span class="built_in">Math</span>.PI*(i+<span class="number">1</span>)/<span class="number">10</span>);</div><div class="line"></div><div class="line">     <span class="comment">/*context.closePath();*/</span>          (封闭/不封闭)</div><div class="line">     context.stroke();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>例子：绘制弧线</p>
+</blockquote>
 ]]></content>
     </entry>
     
@@ -305,6 +330,25 @@
 <li>input设置初始样式，没有border   </li>
 <li>input圆角 border-radius:6px;     6px为弧度区域宽</li>
 </ol>
+<h4 id="·限制宽度"><a href="#·限制宽度" class="headerlink" title="·限制宽度"></a>·限制宽度</h4><ul>
+<li>在移动端添加事件必须用addEventListener事件监听方法</li>
+<li>拉伸宽度&amp;横竖屏切换，自动调节</li>
+<li>设定屏幕最大宽幅</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">setSize();</div><div class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"resize"</span>, setSize, <span class="literal">false</span>);</div><div class="line"><span class="comment">// window.addEventListener("orientationchange", setSize, false);  横竖屏切换，作用与上面相同</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">setSize</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> html = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'html'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="keyword">var</span> width = html.getBoundingClientRect().width;</div><div class="line">    <span class="comment">//当宽度大于540的时候最大宽度为540，否则该是多少就多少。</span></div><div class="line">    width = width &gt; <span class="number">540</span> ? <span class="number">540</span> : width;</div><div class="line">    html.style.fontSize = width / <span class="number">16</span> + <span class="string">"px"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="·touch事件"><a href="#·touch事件" class="headerlink" title="·touch事件"></a>·touch事件</h4><ul>
+<li>event.preventDefault();　　阻止默认事件</li>
+<li>touchstart　　当手指触摸屏幕时触发</li>
+<li>touchmove　　当手指在屏幕上滑动时连续触发</li>
+<li>touchend　　当手指从屏幕上移开时触发</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</div><div class="line">div.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  event.preventDefault();     <span class="comment">//取消默认时间</span></div><div class="line">  div.style.background-color = <span class="string">'red'</span>;</div><div class="line">&#125;,<span class="literal">false</span>)</div></pre></td></tr></table></figure>
+<h4 id="·touch事件对象"><a href="#·touch事件对象" class="headerlink" title="·touch事件对象"></a>·touch事件对象</h4><ul>
+<li>touches　　当前屏幕上所有触摸点的列表</li>
+<li>targetTouches　　当前对象上所有的触摸点的列表</li>
+<li>changedTouches　　涉及当前事件的触摸点的列表(最开始触摸的数量)</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</div><div class="line">div.addEventListener(<span class="string">'touchstart'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</div><div class="line">  event.preventDefault();     <span class="comment">//取消默认时间</span></div><div class="line">  div.style.background-color = <span class="string">'red'</span>;</div><div class="line">  <span class="built_in">console</span>.log(event);</div><div class="line">  <span class="built_in">console</span>.log(event.touches.length);    <span class="comment">//触摸点击数量</span></div><div class="line">  <span class="built_in">console</span>.log(event.targetTouches.length);    <span class="comment">//触摸点击数量</span></div><div class="line">  <span class="built_in">console</span>.log(event.changedTouches.length);   <span class="comment">//第一次触摸的数量</span></div><div class="line">&#125;,<span class="literal">false</span>)</div></pre></td></tr></table></figure>
 ]]></content>
     </entry>
     
@@ -874,45 +918,51 @@
       <title><![CDATA[css笔记]]></title>
       <url>http://yoursite.com/2016/11/28/css%E7%AC%94%E8%AE%B0/</url>
       <content type="html"><![CDATA[<p></p><h3 id="css样式笔记">1.css样式笔记</h3><p></p>
-<p></p><h4 id="清除浮动">·清除浮动</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line"> <span class="attribute">content</span>:<span class="string">""</span>;</div><div class="line"> <span class="attribute">display</span>:block;</div><div class="line"> <span class="attribute">clear</span>:both;</div><div class="line"> <span class="attribute">height</span>:<span class="number">0</span>;</div><div class="line"> <span class="attribute">overflow</span>:hidden;</div><div class="line"> <span class="attribute">visibility</span>:hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
+<h4 id="清除浮动">·清除浮动</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</div><div class="line"> <span class="attribute">content</span>:<span class="string">""</span>;</div><div class="line"> <span class="attribute">display</span>:block;</div><div class="line"> <span class="attribute">clear</span>:both;</div><div class="line"> <span class="attribute">height</span>:<span class="number">0</span>;</div><div class="line"> <span class="attribute">visibility</span>:hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
 <a id="more"></a>
-<p></p><h4 id="多行文本显示一行与省略号">·多行文本显示一行与省略号</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line"><span class="attribute">overflow</span>: hidden;</div><div class="line"><span class="attribute">text-overflow</span>:ellipsis;</div><div class="line"><span class="attribute">white-space</span>:nowrap;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-<blockquote>
-<p>text-overflow属性仅是注解，当文本溢出时是否显示省略标记。并不具备其它的样式属性定义。所以3个属性都要写<br>text-overflow:ellipsis属性在FF中是没有效果的。</p>
-</blockquote>
-<p></p><h4 id="多行文本溢出显示省略号">·多行文本溢出显示省略号</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line"><span class="attribute">overflow</span>: hidden;</div><div class="line"><span class="attribute">text-overflow</span>: ellipsis;</div><div class="line"><span class="attribute">display</span>: -webkit-box;</div><div class="line"><span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line"><span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-<blockquote>
-<p>-webkit-line-clamp 用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。 常见结合属性：<br>1.display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。<br>2.-webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。<br>3.text-overflow: ellipsis; ，可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。  </p>
-</blockquote>
-<p></p><h4 id="border详写">·border详写</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line"><span class="attribute">border-top-color</span>: <span class="number">#d9dada</span>;</div><div class="line"><span class="attribute">border-top-left-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-top-right-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-bottom-right-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-bottom-left-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-radius</span>: <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-<p></p><h4 id="css简单画三角">·css简单画三角</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:before</span>&#123;  </div><div class="line"><span class="attribute">z-index</span>: <span class="number">3</span>;</div><div class="line"><span class="attribute">position</span>: absolute;</div><div class="line"><span class="attribute">display</span>: block;</div><div class="line"><span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line"><span class="attribute">width</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">border-left</span>: <span class="number">6px</span> solid <span class="number">#fd6500</span>;</div><div class="line"><span class="attribute">border-top</span>: <span class="number">4px</span> dashed transparent;</div><div class="line"><span class="attribute">border-right</span>:<span class="number">6px</span> dashed transparent;</div><div class="line"><span class="attribute">border-bottom</span>: <span class="number">4px</span> dashed transparent;</div><div class="line"><span class="attribute">top</span>:<span class="number">7px</span>;</div><div class="line"><span class="attribute">left</span>:<span class="number">9px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ico_more</span>&#123;</div><div class="line"><span class="attribute">display</span>: inline-block;</div><div class="line"><span class="attribute">vertical-align</span>: middle;</div><div class="line"><span class="attribute">width</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">border</span>: <span class="number">4px</span> solid transparent;</div><div class="line"><span class="attribute">border-top-color</span>:<span class="number">#999a9b</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-<p></p><h4 id="css简单画竖线">·css简单画竖线</h4>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:before</span>&#123;</div><div class="line"><span class="attribute">position</span>: absolute;</div><div class="line"><span class="attribute">display</span>:block;</div><div class="line"><span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line"><span class="attribute">width</span>:<span class="number">1px</span>;</div><div class="line"><span class="attribute">height</span>:<span class="number">10px</span>;</div><div class="line"><span class="attribute">background-color</span>: <span class="number">#434341</span>;</div><div class="line"><span class="attribute">top</span>:<span class="number">14px</span>;</div><div class="line"><span class="attribute">right</span>:-<span class="number">13px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure><p></p>
-<p></p><h3 id="css-伪类&伪元素">2.css-伪类&amp;伪元素</h3><p></p>
-<p></p><h4 id="伪类-动态伪类">·伪类-动态伪类</h4>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">css1</div><div class="line">:link　　   //未访问的链接</div><div class="line">:visited　  //已访问的链接</div><div class="line">:hover　　  //鼠标悬浮在元素上</div><div class="line">:active　 　//被激活的元素</div><div class="line">css2</div><div class="line">:first-child　　//元素的第一个子元素</div><div class="line">:focus　　　　  //拥有键盘输入焦点的元素</div></pre></td></tr></table></figure><p></p>
-<blockquote>
-<p>先后顺序: Link–visited–hover–active. 伪类名称对大小写不敏感。</p>
-</blockquote>
-<p></p><h4 id="伪类-UI元素状态伪类">·伪类-UI元素状态伪类</h4>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:checked  //选择所有选中的表单元素</div><div class="line">:enabled  //选择所有启用的表单元素</div><div class="line">:disabled //选择所有禁用的表单元素</div><div class="line"></div><div class="line">input[type="text"]:disabled &#123;border:1px solid #999;background-color: #fefefe;&#125;  //例</div></pre></td></tr></table></figure><p></p>
-<blockquote>
-<p>IE6-8不支持”:checked”,”:enabled”,”:disabled”这三种选择器。</p>
-</blockquote>
-<p></p><h4 id="伪类-:nth选择器">·伪类-:nth选择器</h4>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">:fist-child   //选择某个元素的第一个子元素；IE6不支持</div><div class="line">:last-child   //选择某个元素的最后一个子元素；</div><div class="line">:nth-child()    //选择某个元素的一个或多个特定的子元素； IE6-8和FF3-不支持</div><div class="line">:nth-last-child()   //选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</div><div class="line">:nth-of-type()    //选择指定的元素；    IE6-8和FF3.0-不支持</div><div class="line">:nth-last-of-type()   //选择指定的元素，从元素的最后一个开始计算；</div><div class="line">:first-of-type    //选择一个父元素下的第一个同类子元素；</div><div class="line">:last-of-type   //选择一个父元素的最后一个同类子元素；</div><div class="line">:only-child     //选择的元素是它的父元素的唯一一个子元素(注意：子节点不包含文本节点)；IE6-8不支持</div><div class="line">:only-of-type   //选择一个元素是它的父元素的唯一一个相同类型的子元素(注意：子节点不包含文本节点);IE6-8和FF3.0-不支持</div><div class="line">:empty          //选择的元素里面没有任何内容。</div></pre></td></tr></table></figure><p></p>
-<p></p><h5 id=":nth-child详细说明">:nth-child详细说明</h5>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">:nth-child(length);      /*参数是具体数字*/</div><div class="line">:nth-child(n);           /*参数是n,n从0开始计算*/</div><div class="line">:nth-child(n*length)     /*n的倍数选择，n从0开始算*/</div><div class="line">:nth-child(n+length);    /*选择大于length后面的元素*/</div><div class="line">:nth-child(-n+length)    /*选择小于length前面的元素*/</div><div class="line">:nth-child(n*length+1);  /*表示隔几选一*/</div><div class="line">//上面length为整数</div><div class="line"></div><div class="line">":nth-child(2n)"等于":nth-child(even)"   偶数</div><div class="line">":nth-child(2n+1)"等于":nth-child(odd)"  奇数</div><div class="line">:nth-child(n+3)   这个选择器是选择从第3个元素开始选择</div><div class="line">:nth-child(-n+3)  选择第3个前面</div><div class="line">:nth-child(4n+1)  隔三选一</div><div class="line">*选择器需要与元素下标完全匹配</div><div class="line"></div><div class="line">E:nth-of-type(n)  表示E父元素中的第n个字节点，且类型为E</div><div class="line">E:nth-last-of-type(n)表示E父元素中的第n个字节点，且类型为E,从后向前计算</div><div class="line">*只匹配在下标出现的选择器/</div></pre></td></tr></table></figure><p></p>
-<blockquote>
-<p>“:nth-last-child()”和”:nth-of-type()”都可以使用此种使用方法。<br> :nth-of-type类似于:nth-child,不同之处就是指定了元素的类型。   </p>
-</blockquote>
-<p></p><h4 id="其他">·其他</h4>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span><span class="xml"></span></div><div class="line">:not()     //伪类-否定选择器可以让你定位不匹配该选择器的元素</div><div class="line">q:lang(no) &#123;quotes: "<span class="tag">&lt;<span class="name">"</span> "&gt;</span>";&#125;　　　　//带有指定(lang)属性的元素</div><div class="line"></div><div class="line">input:not([type="submit"]) &#123;border: 1px solid red;&#125;   例:form中所有input加边框，submit不起变化//</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>文字<span class="tag">&lt;<span class="name">q</span> <span class="attr">lang</span>=<span class="string">"no"</span>&gt;</span>段落中的引用的文字<span class="tag">&lt;/<span class="name">q</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure><p></p>
+
+<h4 id="多行文本显示一行与省略号">·多行文本显示一行与省略号</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line"><span class="attribute">overflow</span>: hidden;</div><div class="line"><span class="attribute">text-overflow</span>:ellipsis;</div><div class="line"><span class="attribute">white-space</span>:nowrap;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+&gt; text-overflow属性仅是注解，当文本溢出时是否显示省略标记。并不具备其它的样式属性定义。所以3个属性都要写<br>text-overflow:ellipsis属性在FF中是没有效果的。
+
+<h4 id="多行文本溢出显示省略号">·多行文本溢出显示省略号</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span>&#123;</div><div class="line"><span class="attribute">width</span>:<span class="number">200px</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">32px</span>;</div><div class="line"><span class="attribute">overflow</span>: hidden;</div><div class="line"><span class="attribute">text-overflow</span>: ellipsis;</div><div class="line"><span class="attribute">display</span>: -webkit-box;</div><div class="line"><span class="attribute">-webkit-line-clamp</span>: <span class="number">2</span>;</div><div class="line"><span class="attribute">-webkit-box-orient</span>: vertical;</div><div class="line"><span class="attribute">font-size</span>: <span class="number">14px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+&gt; -webkit-line-clamp 用来限制在一个块元素显示的文本的行数。 为了实现该效果，它需要组合其他的WebKit属性。 常见结合属性：<br>1.display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子模型显示 。<br>2.-webkit-box-orient 必须结合的属性 ，设置或检索伸缩盒对象的子元素的排列方式 。<br>3.text-overflow: ellipsis; ，可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本 。<br>
+<h4 id="border详写">·border详写</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span>&#123;</div><div class="line"><span class="attribute">border-top-color</span>: <span class="number">#d9dada</span>;</div><div class="line"><span class="attribute">border-top-left-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-top-right-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-bottom-right-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-bottom-left-radius</span>:<span class="number">2em</span>;</div><div class="line"><span class="attribute">border-radius</span>: <span class="number">2px</span> <span class="number">2px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<h4 id="css简单画三角">·css简单画三角</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:before</span>&#123;  </div><div class="line"><span class="attribute">z-index</span>: <span class="number">3</span>;</div><div class="line"><span class="attribute">position</span>: absolute;</div><div class="line"><span class="attribute">display</span>: block;</div><div class="line"><span class="attribute">content</span>: <span class="string">''</span>;</div><div class="line"><span class="attribute">width</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">border-left</span>: <span class="number">6px</span> solid <span class="number">#fd6500</span>;</div><div class="line"><span class="attribute">border-top</span>: <span class="number">4px</span> dashed transparent;</div><div class="line"><span class="attribute">border-right</span>:<span class="number">6px</span> dashed transparent;</div><div class="line"><span class="attribute">border-bottom</span>: <span class="number">4px</span> dashed transparent;</div><div class="line"><span class="attribute">top</span>:<span class="number">7px</span>;</div><div class="line"><span class="attribute">left</span>:<span class="number">9px</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.ico_more</span>&#123;</div><div class="line"><span class="attribute">display</span>: inline-block;</div><div class="line"><span class="attribute">vertical-align</span>: middle;</div><div class="line"><span class="attribute">width</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">height</span>: <span class="number">0</span>;</div><div class="line"><span class="attribute">border</span>: <span class="number">4px</span> solid transparent;</div><div class="line"><span class="attribute">border-top-color</span>:<span class="number">#999a9b</span> ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<h4 id="css简单画竖线">·css简单画竖线</h4>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">div</span><span class="selector-pseudo">:before</span>&#123;</div><div class="line"><span class="attribute">position</span>: absolute;</div><div class="line"><span class="attribute">display</span>:block;</div><div class="line"><span class="attribute">content</span>: <span class="string">""</span>;</div><div class="line"><span class="attribute">width</span>:<span class="number">1px</span>;</div><div class="line"><span class="attribute">height</span>:<span class="number">10px</span>;</div><div class="line"><span class="attribute">background-color</span>: <span class="number">#434341</span>;</div><div class="line"><span class="attribute">top</span>:<span class="number">14px</span>;</div><div class="line"><span class="attribute">right</span>:-<span class="number">13px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+<h3 id="css-伪类&伪元素">2.css-伪类&amp;伪元素</h3>
+<h4 id="伪类-动态伪类">·伪类-动态伪类</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">css1</div><div class="line">:link　　   //未访问的链接</div><div class="line">:visited　  //已访问的链接</div><div class="line">:hover　　  //鼠标悬浮在元素上</div><div class="line">:active　 　//被激活的元素</div><div class="line">css2</div><div class="line">:first-child　　//元素的第一个子元素</div><div class="line">:focus　　　　  //拥有键盘输入焦点的元素</div></pre></td></tr></table></figure>
+
+&gt; 先后顺序: Link–visited–hover–active. 伪类名称对大小写不敏感。
+
+<h4 id="伪类-UI元素状态伪类">·伪类-UI元素状态伪类</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">:checked  //选择所有选中的表单元素（checkbox或radio）</div><div class="line">:enabled  //选择所有可点击（启用）的表单元素</div><div class="line">:disabled //选择所有不可点击（禁用）的表单控件</div><div class="line"></div><div class="line">input[type="text"]:disabled &#123;border:1px solid #999;background-color: #fefefe;&#125;  //例</div></pre></td></tr></table></figure>
+
+&gt;IE6-8不支持”:checked”,”:enabled”,”:disabled”这三种选择器。
+
+<h4 id="伪类-:nth选择器">·伪类-:nth选择器</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">:fist-child   //选择某个元素的第一个子元素；IE6不支持</div><div class="line">:last-child   //选择某个元素的最后一个子元素；</div><div class="line">:nth-child()    //选择某个元素的一个或多个特定的子元素； IE6-8和FF3-不支持</div><div class="line">:nth-last-child()   //选择某个元素的一个或多个特定的子元素，从这个元素的最后一个子元素开始算；</div><div class="line">:nth-of-type()    //选择指定的元素；    IE6-8和FF3.0-不支持</div><div class="line">:nth-last-of-type()   //选择指定的元素，从元素的最后一个开始计算；</div><div class="line">:first-of-type    //选择一个父元素下的第一个同类子元素；</div><div class="line">:last-of-type   //选择一个父元素的最后一个同类子元素；</div><div class="line">:only-child     //选择的元素是它的父元素的唯一一个子元素(注意：子节点不包含文本节点)；IE6-8不支持</div><div class="line">:only-of-type   //选择一个元素是它的父元素的唯一一个相同类型的子元素(注意：子节点不包含文本节点);IE6-8和FF3.0-不支持</div><div class="line">:empty          //选择的元素里面没有任何内容。</div></pre></td></tr></table></figure>
+
+<h5 id=":nth-child详细说明">:nth-child详细说明</h5>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">:nth-child(length);      /*参数是具体数字*/</div><div class="line">:nth-child(n);           /*参数是n,n从0开始计算*/</div><div class="line">:nth-child(n*length)     /*n的倍数选择，n从0开始算*/</div><div class="line">:nth-child(n+length);    /*选择大于length后面的元素*/</div><div class="line">:nth-child(-n+length)    /*选择小于length前面的元素*/</div><div class="line">:nth-child(n*length+1);  /*表示隔几选一*/</div><div class="line">//上面length为整数</div><div class="line"></div><div class="line">":nth-child(2n)"等于":nth-child(even)"   偶数</div><div class="line">":nth-child(2n+1)"等于":nth-child(odd)"  奇数</div><div class="line">:nth-child(n+3)   这个选择器是选择从第3个元素开始选择</div><div class="line">:nth-child(-n+3)  选择第3个前面</div><div class="line">:nth-child(4n+1)  隔三选一</div><div class="line">*选择器需要与元素下标完全匹配</div><div class="line"></div><div class="line">E:nth-of-type(n)  表示E父元素中的第n个字节点，且类型为E</div><div class="line">E:nth-last-of-type(n)表示E父元素中的第n个字节点，且类型为E,从后向前计算</div><div class="line">*只匹配在下标出现的选择器/</div></pre></td></tr></table></figure>
+
+&gt;”:nth-last-child()”和”:nth-of-type()”都可以使用此种使用方法。<br> :nth-of-type类似于:nth-child,不同之处就是指定了元素的类型。<br>
+<h4 id="其他">·其他</h4>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="xml"></span></div><div class="line">:not()     //伪类-否定选择器可以让你定位不匹配该选择器的元素</div><div class="line">q:lang(no) &#123;quotes: "<span class="tag">&lt;<span class="name">"</span> "&gt;</span>";&#125;　　　　//带有指定(lang)属性的元素</div><div class="line"></div><div class="line">input:not([type="submit"]) &#123;border: 1px solid red;&#125;   例:form中所有input加边框，submit不起变化//</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>文字<span class="tag">&lt;<span class="name">q</span> <span class="attr">lang</span>=<span class="string">"no"</span>&gt;</span>段落中的引用的文字<span class="tag">&lt;/<span class="name">q</span>&gt;</span>文字<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">E:target 表示当前的URL片段的元素类型，这个元素必须是E</div><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">.tabs&#123;</div><div class="line">        /*overflow: hidden;*/     //表单选择效果</div><div class="line">        overflow: auto;</div><div class="line"> &#125;</div><div class="line">:target&#123;</div><div class="line">        display: block;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tab-control"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#tab1"</span>&gt;</span>tab1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#tab2"</span>&gt;</span>tab2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#tab3"</span>&gt;</span>tab3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tabs"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tab1"</span>&gt;</span>tab1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tab2"</span>&gt;</span>tab2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"tab3"</span>&gt;</span>tab3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
 <p></p><h4 id="伪元素">·伪元素</h4>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">css1</div><div class="line">:first-line　 　//向文本的首行设置特殊样式</div><div class="line">:first-letter　 //向文本的首字母设置特殊样式</div><div class="line">css2</div><div class="line">:before　　     //在元素之前插入新内容</div><div class="line">:after　　      //在元素之后插入新内容</div><div class="line">::selection     //用来改变浏览网页选中文的默认效果</div></pre></td></tr></table></figure><p></p>
 <blockquote>
@@ -928,7 +978,7 @@
 <blockquote>
 <p>box-shadow:投影方式 X轴偏移量 Y轴偏移量阴影模糊半径 阴影扩展半径 阴影颜色;</p>
 </blockquote>
-<h3 id="5-css3-filter（滤镜）"><a href="#5-css3-filter（滤镜）" class="headerlink" title="5.css3-filter（滤镜）"></a>5.css3-filter（滤镜）</h3><p>　　以下可加上webkit、moz、ms、o，针对不用内核进行处理，括号里面值可写：0 ~ 1 或者 0% ~ 100%   </p>
+<h3 id="4-css3-filter（滤镜）"><a href="#4-css3-filter（滤镜）" class="headerlink" title="4.css3-filter（滤镜）"></a>4.css3-filter（滤镜）</h3><p>　　以下可加上webkit、moz、ms、o，针对不用内核进行处理，括号里面值可写：0 ~ 1 或者 0% ~ 100%   </p>
 <ul>
 <li>灰度 -webkit-filter:grayscale(1);</li>
 <li>棕色调 -webkit-filter:sepia(1);</li>
@@ -940,6 +990,78 @@
 <li>对比度 -webkit-filter:contrast(2);</li>
 <li>模糊 -webkit-filter:blur(3px);</li>
 <li>阴影 -webkit-filter:drop-shadow(5px 5px 5px #ccc);</li>
+</ul>
+<h3 id="5-css3-2D变换"><a href="#5-css3-2D变换" class="headerlink" title="5.css3-2D变换"></a>5.css3-2D变换</h3><h4 id="5-1-transform"><a href="#5-1-transform" class="headerlink" title="5.1 transform"></a>5.1 transform</h4><p>　　transform执行顺序问题——后写先执行</p>
+<ul>
+<li><p>旋转：rotate(90deg)　　旋转函数（取值度数）</p>
+<ul>
+<li>deg  度数</li>
+<li>transform-origin:x/y　　旋转的基点</li>
+<li>transition  　　 旋转时间等<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    background-color: pink;</div><div class="line">    transform: rotate(0deg);</div><div class="line">    transition: 3s;</div><div class="line">    margin: 100px auto;</div><div class="line">    transform-origin:0 0;   //左上角为中心旋转</div><div class="line">&#125;</div><div class="line">div:hover&#123;</div><div class="line">    transform: rotate(160deg);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>斜切：skew(90deg)　　 倾斜函数（取值度数）</p>
+<ul>
+<li>skewX()</li>
+<li>skewY()</li>
+</ul>
+</li>
+<li>缩放：scale(2)　　 缩放函数 取值 正数、负数和小数（正常是1倍）<ul>
+<li>scaleX()</li>
+<li>scaleY()</li>
+</ul>
+</li>
+<li>位移：translate() 　　位移函数<ul>
+<li>translateX()</li>
+<li>translateY()</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-matrix-a-b-c-d-e-f-矩阵函数"><a href="#5-2-matrix-a-b-c-d-e-f-矩阵函数" class="headerlink" title="5.2 matrix(a,b,c,d,e,f) 矩阵函数"></a>5.2 matrix(a,b,c,d,e,f) 矩阵函数</h4><ul>
+<li><p>通过矩阵实现缩放</p>
+<ul>
+<li>x轴缩放　　a=x<em>a　　 c=x</em>c　　 e=x*e;</li>
+<li>y轴缩放　　b=y<em>b　　d=y</em>d 　　 f=y*f;</li>
+</ul>
+</li>
+<li><p>通过矩阵实现位移</p>
+<ul>
+<li>x轴位移: e=e+x</li>
+<li>y轴位移: f=f+y</li>
+</ul>
+</li>
+<li><p>通过矩阵实现倾斜</p>
+<ul>
+<li>x轴倾斜: c=Math.tan(xDeg/180*Math.PI)</li>
+<li>y轴倾斜: b=Math.tan(yDeg/180*Math.PI)</li>
+</ul>
+</li>
+<li><p>通过矩阵实现旋转</p>
+<ul>
+<li>a=Math.cos(deg/180*Math.PI);</li>
+<li>b=Math.sin(deg/180*Math.PI);</li>
+<li>c=-Math.sin(deg/180*Math.PI);</li>
+<li>d=Math.cos(deg/180*Math.PI);</li>
+</ul>
+</li>
+<li><p>变换兼容IE9以下IE版本只能通过矩阵来实现</p>
+<ul>
+<li>filter: progid:DXImageTransform.Microsoft.Matrix( M11= 1, M12= 0, M21= 0 , M22=1,SizingMethod=’auto expand’);</li>
+<li>IE下的矩阵没有E和F两个参数　　M11==a; M12==c; M21==b; M22==d</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> box = <span class="built_in">document</span>.getElementById(<span class="string">"box"</span>);</div><div class="line">  box.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">1</span>,</div><div class="line">        b = <span class="number">0</span>,</div><div class="line">        c = <span class="number">0</span>,</div><div class="line">        d = <span class="number">1</span>,</div><div class="line">        e = <span class="number">0</span>,</div><div class="line">        f = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">var</span> x=<span class="number">2</span>,</div><div class="line">        y=<span class="number">2</span>;</div><div class="line"></div><div class="line">    a=x*a;</div><div class="line">    c=x*c;</div><div class="line">    e=x*e;</div><div class="line">    b=y*b;</div><div class="line">    d=y*d;</div><div class="line">    f=y*f;</div><div class="line"></div><div class="line">    box.style.transform = <span class="string">"matrix("</span>+a+<span class="string">","</span>+b+<span class="string">","</span>+c+<span class="string">","</span>+d+<span class="string">","</span>+e+<span class="string">","</span>+f+<span class="string">")"</span></div><div class="line">    box.style.filter = <span class="string">"progid:DXImageTransform.Microsoft.Matrix( M11= "</span>+a+<span class="string">", M12= "</span>+c+<span class="string">", M21= "</span>+b+<span class="string">" , M22= "</span>+d+<span class="string">",SizingMethod='auto expand')"</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="6-属性选择器"><a href="#6-属性选择器" class="headerlink" title="6.属性选择器"></a>6.属性选择器</h3><ul>
+<li><strong>E[attr]</strong>　　只使用属性名，但没有确定任何属性值   </li>
+<li><strong>E[attr=”value”]</strong>　　指定属性名，并指定了该属性的属性值   </li>
+<li><strong>E[attr~=”value”]</strong>　　指定属性名，并且具有属性值，此属性值是一个词列表，并且以空格隔开，其中词列表中包含了一个value词，而且等号前面的“〜”不能不写   </li>
+<li><strong>E[attr^=”value”]</strong>　　指定了属性名，并且有属性值，属性值是<font color="blue">以value开头的</font>(从头开始匹配)</li>
+<li><strong>E[attr$=”value”]</strong>　　指定了属性名，并且有属性值，而且属性值是<font color="blue">以value结束的</font>(从尾开始匹配)</li>
+<li><strong>E[attr*=”value”]</strong>　　指定了属性名，并且有属性值，而且属值中<font color="blue">包含了value</font></li>
+<li><strong>E[attr|=”value”]</strong>　　指定了属性名，并且属性值<font color="blue">是value或者以“value-”开头的值</font>（比如说zh-cn）<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></div><div class="line">  div&#123;</div><div class="line">  	height: 50px;</div><div class="line">  	background-color: pink;</div><div class="line">  	margin-bottom: 10px;</div><div class="line">  &#125;</div><div class="line">  div[data-id]&#123;</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-id="2"]&#123;</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId~="zhangsan"]&#123;    //属性为：data-userId="zhangsan 1"</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId^="z"]&#123;      //找到以z开头的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId$="wu"]&#123;     //找到以wu开头的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line">  div[data-userId*="n"]&#123;      //找到包含n的属性</div><div class="line">  	background-color: yellow;    </div><div class="line">  &#125;</div><div class="line">  div[data-id|="zh"]&#123;         //找到包含zh的属性</div><div class="line">  	background-color: yellow;</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-cc"</span> <span class="attr">data-userId</span>=<span class="string">"zhangsan"</span>&gt;</span>div1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-as"</span> <span class="attr">data-userId</span>=<span class="string">"lisi"</span>&gt;</span>div2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zh-qq"</span> <span class="attr">data-userId</span>=<span class="string">"wangwu"</span>&gt;</span>div3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"username"</span> <span class="attr">data-id</span>=<span class="string">"zhq-er"</span> <span class="attr">data-userId</span>=<span class="string">"zhaosi"</span>&gt;</span>div4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
 </ul>
 ]]></content>
     </entry>
@@ -1027,6 +1149,424 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"cache-control"</span> <span class="attr">content</span>=<span class="string">"no-cache"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"0"</span>&gt;</span></div></pre></td></tr></table></figure><p></p>
 <p>指定过期时间
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"expires"</span> <span class="attr">content</span>=<span class="string">"Wed, 20 Jun 2000 22:33:00 GMT"</span>&gt;</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[综合面试题]]></title>
+      <url>http://yoursite.com/2016/11/26/%E9%9D%A2%E8%AF%95/</url>
+      <content type="html"><![CDATA[<h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h4><blockquote>
+<p>关键要有亮点 <br>
+  很多人简历就是基本信息，然后巴拉巴拉一些不熟悉的项目，用了什么框架，自己做了什么事情，然后就没了。 <br>
+  完全没有想谈谈的理由，要知道，重要的不是你做了什么，而是你做的东西带来了什么，什么地方是只有你可以做到的，或者说你比绝大数人都做的好的。比如钻研精神，刚学好的要经验没经验，要技术没技术。所以如果想寻求一份工作机会，可以 想想自己可以打动别人的亮点在哪里？</p>
+</blockquote>
+<h4 id="2-常用那几种浏览器测试？有哪些内核-Layout-Engine"><a href="#2-常用那几种浏览器测试？有哪些内核-Layout-Engine" class="headerlink" title="2.常用那几种浏览器测试？有哪些内核(Layout Engine)?"></a>2.常用那几种浏览器测试？有哪些内核(Layout Engine)?</h4><p>(Q1) 浏览器：IE，Chrome，FireFox，Safari，Opera（欧朋）。<br>(Q2) 内核：Trident，Gecko，Presto，Webkit。</p>
+<h4 id="2-你能描述一下渐进增强和优雅降级之间的不同吗"><a href="#2-你能描述一下渐进增强和优雅降级之间的不同吗" class="headerlink" title="2.你能描述一下渐进增强和优雅降级之间的不同吗?"></a>2.你能描述一下渐进增强和优雅降级之间的不同吗?</h4><blockquote>
+<p>渐进增强: 从被所有浏览器支持的基本功能开始，逐步地添加那些只有新式浏览器才支持的功能,向页面增加无害于基础浏览器的额外样式和功能的。当浏览器支持时，它们会自动地呈现出来并发挥作用。 <br>
+优雅降级: web站点在所有新式浏览器中都能正常工作，然后再针对低版本浏览器进行兼容，使之在旧式浏览器上以某种形式降级体验却不至于完全失效。比如插入兼容js库。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="3-网页验证码是干什么用的？是为了解决什么安全问题"><a href="#3-网页验证码是干什么用的？是为了解决什么安全问题" class="headerlink" title="3.网页验证码是干什么用的？是为了解决什么安全问题"></a>3.网页验证码是干什么用的？是为了解决什么安全问题</h4><blockquote>
+<p>区分用户是计算机还是人的公共全自动程序。可以防止：恶意破解密码、刷票、论坛灌水； <br>
+ 有效防止黑客对某一个特定注册用户用特定程序通过暴力破解的方式进行不断的登录尝试</p>
+</blockquote>
+<h4 id="4-介绍一下你对浏览器内核的理解"><a href="#4-介绍一下你对浏览器内核的理解" class="headerlink" title="4.介绍一下你对浏览器内核的理解"></a>4.介绍一下你对浏览器内核的理解</h4><blockquote>
+<p>主要分成两部分：渲染引擎和JS引擎。 <br>
+（1）渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等）。 <br>
+（2）JS引擎则：解析和执行javascript来实现网页的动态效果</p>
+</blockquote>
+<h4 id="5-性能优化"><a href="#5-性能优化" class="headerlink" title="5.性能优化"></a>5.性能优化</h4><blockquote>
+<p>1.背景图片用雪碧图 <br>
+  2.图像格式的选择，无透明背景用jpg，单色图标用icon-font <br>
+  3.优化CSS、js文件，压缩合并   <br>
+  4.不经常修改的请求文件(css,js,图片)转存到其他地方，比如七牛云存储</p>
+</blockquote>
+<h4 id="6-你遇到过比较难的技术问题是？你是如何解决的？"><a href="#6-你遇到过比较难的技术问题是？你是如何解决的？" class="headerlink" title="6.你遇到过比较难的技术问题是？你是如何解决的？"></a>6.你遇到过比较难的技术问题是？你是如何解决的？</h4><h4 id="7-平时有看什么书，学习资料？"><a href="#7-平时有看什么书，学习资料？" class="headerlink" title="7.平时有看什么书，学习资料？"></a>7.平时有看什么书，学习资料？</h4><blockquote>
+<p>codepen,前端大全公众号,慕课网,妙味课堂 <br></p>
+</blockquote>
+<h4 id="8-nodejs了解么"><a href="#8-nodejs了解么" class="headerlink" title="8.nodejs了解么"></a>8.nodejs了解么</h4><blockquote>
+<p>后台语言，可以用来做服务器和一些工具 <br>
+  Node.js 的适用场景:高并发</p>
+</blockquote>
+<h4 id="9-http状态码有那些？分别代表是什么意思"><a href="#9-http状态码有那些？分别代表是什么意思" class="headerlink" title="9.http状态码有那些？分别代表是什么意思"></a>9.http状态码有那些？分别代表是什么意思</h4><blockquote>
+<ul>
+<li>100-199 用于指定客户端应相应的某些动作</li>
+<li>200-299 用于表示请求成功</li>
+<li>300-399 用于已经移动的文件并且常被包含在定位头信息中指定新的地址信息</li>
+<li>400-499 用于指出客户端的错误<ul>
+<li>400：语义有误，当前请求无法被服务器理解</li>
+<li>401：当前请求需要用户验证
+403：服务器已经理解请求，但是拒绝执行它</li>
+</ul>
+</li>
+<li>500-599 用于支持服务器错误<ul>
+<li>503：服务不可用</li>
+</ul>
+</li>
+</ul>
+<p>重点记：2开头代表成功，4开头代表客户端请求错误，5开头代表服务器错误</p>
+</blockquote>
+<h4 id="10-一个页面从输入-www-baidu-com-到页面加载显示完成，这个过程中都发生了什么？"><a href="#10-一个页面从输入-www-baidu-com-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="10.一个页面从输入 www.baidu.com 到页面加载显示完成，这个过程中都发生了什么？"></a>10.一个页面从输入 www.baidu.com 到页面加载显示完成，这个过程中都发生了什么？</h4><blockquote>
+<p>dns获取ip地址 -&gt; 找到ip地址 -&gt; 分割请求报文段 -&gt; 请求端口服务器 -&gt; 根据报文段返回数据 -&gt; 客户端解析响应报文段 -&gt; 解析dom -&gt; 渲染css/执行js <br>
+  备注:连接服务器过程中会发生TCP三次握手和四次挥手，这个是深入的题目了。 <br></p>
+<p>参考答案2,分为4个步骤：</p>
+<ul>
+<li>1.当发送一个 URL 请求时，不管这个 URL 是 Web 页面的 URL 还是 Web 页面上每个资源的 URL，浏览器都会开启一个线程来处理这个请求，同时在远程 DNS 服务器上启动一个 DNS 查询。这能使浏览器获得请求对应的 IP 地址。</li>
+<li>2.浏览器与远程 Web 服务器通过 TCP 三次握手协商来建立一个 TCP/IP 连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。</li>
+<li>3.一旦 TCP/IP 连接建立，浏览器会通过该连接向远程服务器发送 HTTP 的 GET 请求。远程服务器找到资源并使用 HTTP 响应返回该资源，值为 200 的 HTTP 响应状态表示一个正确的响应。</li>
+<li>4.此时，Web 服务器提供资源服务，客户端开始下载资源</li>
+</ul>
+</blockquote>
+<h4 id="11-TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题"><a href="#11-TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题" class="headerlink" title="11.TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题"></a>11.TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题</h4><blockquote>
+<ul>
+<li>三次握手：<ul>
+<li>第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；</li>
+<li>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；</li>
+<li>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。
+握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。</li>
+</ul>
+</li>
+<li>四次挥手 <br>
+与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次握手”。<ul>
+<li>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</li>
+<li>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。</li>
+<li>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。</li>
+<li>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手</li>
+</ul>
+</li>
+</ul>
+<p>简单打法 TCP的三次握手过程：主机A向B发送连接请求；主机B对收到的主机A的报文段进行确认；主机A再次对主机B的确认进行确认。</p>
+<p>为什么采用:采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求，且建立成功，顺序完成数据传输。考虑这样一种特殊情况，主机A第一次发送的连接请求并没有丢失，而是因为网络节点导致延迟达到主机B，主机B以为是主机A又发起的新连接，于是主机B同意连接，并向主机A发回确认，但是此时主机A根本不会理会，主机B就一直在等待主机A发送数据，导致主机B的资源浪费</p>
+</blockquote>
+<h4 id="12-你用什么ide，编辑器进行开发"><a href="#12-你用什么ide，编辑器进行开发" class="headerlink" title="12.你用什么ide，编辑器进行开发"></a>12.你用什么ide，编辑器进行开发</h4><blockquote>
+<p>atom,hbuilder</p>
+</blockquote>
+<h4 id="13-为什么要做前端"><a href="#13-为什么要做前端" class="headerlink" title="13.为什么要做前端"></a>13.为什么要做前端</h4><h4 id="14-你对加班的看法？"><a href="#14-你对加班的看法？" class="headerlink" title="14.你对加班的看法？"></a>14.你对加班的看法？</h4><h4 id="15-说说最近最流行的一些东西吧？常去哪些网站？"><a href="#15-说说最近最流行的一些东西吧？常去哪些网站？" class="headerlink" title="15.说说最近最流行的一些东西吧？常去哪些网站？"></a>15.说说最近最流行的一些东西吧？常去哪些网站？</h4><blockquote>
+<p>框架 react,angular,vue</p>
+</blockquote>
+<h4 id="16-是否了解开源的工具-bower、npm、yeoman、grunt、gulp，一个-npm-的包里的-package-json-具备的必要的字段都有哪些？（名称、版本号，依赖）"><a href="#16-是否了解开源的工具-bower、npm、yeoman、grunt、gulp，一个-npm-的包里的-package-json-具备的必要的字段都有哪些？（名称、版本号，依赖）" class="headerlink" title="16.是否了解开源的工具 bower、npm、yeoman、grunt、gulp，一个 npm 的包里的 package.json 具备的必要的字段都有哪些？（名称、版本号，依赖）"></a>16.是否了解开源的工具 bower、npm、yeoman、grunt、gulp，一个 npm 的包里的 package.json 具备的必要的字段都有哪些？（名称、版本号，依赖）</h4><h4 id="17-会用git吗"><a href="#17-会用git吗" class="headerlink" title="17.会用git吗"></a>17.会用git吗</h4><blockquote>
+<p>会使用的是可视化工具操作git，非命令行操作的不会</p>
+</blockquote>
+<h4 id="18-简单描述一下你做过的移动APP项目研发流程？"><a href="#18-简单描述一下你做过的移动APP项目研发流程？" class="headerlink" title="18.简单描述一下你做过的移动APP项目研发流程？"></a>18.简单描述一下你做过的移动APP项目研发流程？</h4><blockquote>
+<p>拿到设计图后先思考大概的布局; <br>
+  决定是否使用框架及使用什么框架; <br>
+  评估哪些组件和样式可以复用; <br>
+  切图新建项目开始工作</p>
+</blockquote>
+<h4 id="19-最近在学什么？能谈谈你未来3，5年给自己的规划吗？"><a href="#19-最近在学什么？能谈谈你未来3，5年给自己的规划吗？" class="headerlink" title="19.最近在学什么？能谈谈你未来3，5年给自己的规划吗？"></a>19.最近在学什么？能谈谈你未来3，5年给自己的规划吗？</h4><h4 id="20-你如何对网站的文件和资源进行优化？"><a href="#20-你如何对网站的文件和资源进行优化？" class="headerlink" title="20.你如何对网站的文件和资源进行优化？"></a>20.你如何对网站的文件和资源进行优化？</h4><blockquote>
+<p>1.文件合并<br>
+  2.文件最小化/文件压缩<br>
+  3.使用 CDN 托管</p>
+</blockquote>
+<h4 id="21-平时如何管理你的项目？"><a href="#21-平时如何管理你的项目？" class="headerlink" title="21.平时如何管理你的项目？"></a>21.平时如何管理你的项目？</h4><blockquote>
+<p>1.先期团队必须确定好全局样式（globe.css），编码模式(utf-8) 等 <br>
+  2.编写习惯必须一致（例如都是采用继承式的写法，单样式都写成一行）<br>
+  3.标注样式编写人，各模块都及时标注（标注关键样式调用的地方）<br>
+  4.页面进行标注（例如 页面 模块 开始和结束）<br>
+  5.CSS 跟 HTML 分文件夹并行存放，命名都得统一（例如 style.css）<br>
+  6.JS 分文件夹存放 命名以该 JS 功能为准的英文翻译</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[综合面试题]]></title>
+      <url>http://yoursite.com/2016/11/26/other/</url>
+      <content type="html"><![CDATA[<h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h4><blockquote>
+<p>关键要有亮点 <br>
+  很多人简历就是基本信息，然后巴拉巴拉一些不熟悉的项目，用了什么框架，自己做了什么事情，然后就没了。 <br>
+  完全没有想谈谈的理由，要知道，重要的不是你做了什么，而是你做的东西带来了什么，什么地方是只有你可以做到的，或者说你比绝大数人都做的好的。比如钻研精神，刚学好的要经验没经验，要技术没技术。所以如果想寻求一份工作机会，可以 想想自己可以打动别人的亮点在哪里？</p>
+</blockquote>
+<h4 id="2-你能描述一下渐进增强和优雅降级之间的不同吗"><a href="#2-你能描述一下渐进增强和优雅降级之间的不同吗" class="headerlink" title="2.你能描述一下渐进增强和优雅降级之间的不同吗?"></a>2.你能描述一下渐进增强和优雅降级之间的不同吗?</h4><blockquote>
+<p>渐进增强: 项目针对低版本浏览器进行开发，保证最基本的功能可用。再针对高级浏览器进行效果、交互等改进。如css动画 <br>
+优雅降级: 一开始就构建完整的功能，然后再针对低版本浏览器进行兼容，比如插入兼容js库。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="3-网页验证码是干什么用的？是为了解决什么安全问题"><a href="#3-网页验证码是干什么用的？是为了解决什么安全问题" class="headerlink" title="3.网页验证码是干什么用的？是为了解决什么安全问题"></a>3.网页验证码是干什么用的？是为了解决什么安全问题</h4><blockquote>
+<p>区分用户是计算机还是人的公共全自动程序。可以防止：恶意破解密码、刷票、论坛灌水； <br>
+ 有效防止黑客对某一个特定注册用户用特定程序通过暴力破解的方式进行不断的登录尝试</p>
+</blockquote>
+<h4 id="4-介绍一下你对浏览器内核的理解"><a href="#4-介绍一下你对浏览器内核的理解" class="headerlink" title="4.介绍一下你对浏览器内核的理解"></a>4.介绍一下你对浏览器内核的理解</h4><blockquote>
+<p>主要分成两部分：渲染引擎和JS引擎。 <br>
+（1）渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等）。 <br>
+（2）JS引擎则：解析和执行javascript来实现网页的动态效果</p>
+</blockquote>
+<h4 id="5-性能优化"><a href="#5-性能优化" class="headerlink" title="5.性能优化"></a>5.性能优化</h4><blockquote>
+<p>1.背景图片用雪碧图 <br>
+  2.图像格式的选择，无透明背景用jpg，单色图标用icon-font <br>
+  3.优化CSS、js文件，压缩合并   <br>
+  4.不经常修改的请求文件(css,js,图片)转存到其他地方，比如七牛云存储</p>
+</blockquote>
+<h4 id="6-你遇到过比较难的技术问题是？你是如何解决的？"><a href="#6-你遇到过比较难的技术问题是？你是如何解决的？" class="headerlink" title="6.你遇到过比较难的技术问题是？你是如何解决的？"></a>6.你遇到过比较难的技术问题是？你是如何解决的？</h4><h4 id="7-平时有看什么书，学习资料？"><a href="#7-平时有看什么书，学习资料？" class="headerlink" title="7.平时有看什么书，学习资料？"></a>7.平时有看什么书，学习资料？</h4><blockquote>
+<p>codepen,前端大全公众号,慕课网,妙味课堂 <br></p>
+</blockquote>
+<h4 id="8-nodejs了解么"><a href="#8-nodejs了解么" class="headerlink" title="8.nodejs了解么"></a>8.nodejs了解么</h4><blockquote>
+<p>后台语言，可以用来做服务器和一些工具 <br>
+  Node.js 的适用场景:高并发</p>
+</blockquote>
+<h4 id="9-http状态码有那些？分别代表是什么意思"><a href="#9-http状态码有那些？分别代表是什么意思" class="headerlink" title="9.http状态码有那些？分别代表是什么意思"></a>9.http状态码有那些？分别代表是什么意思</h4><blockquote>
+<ul>
+<li>100-199 用于指定客户端应相应的某些动作</li>
+<li>200-299 用于表示请求成功</li>
+<li>300-399 用于已经移动的文件并且常被包含在定位头信息中指定新的地址信息</li>
+<li>400-499 用于指出客户端的错误<ul>
+<li>400：语义有误，当前请求无法被服务器理解</li>
+<li>401：当前请求需要用户验证
+403：服务器已经理解请求，但是拒绝执行它</li>
+</ul>
+</li>
+<li>500-599 用于支持服务器错误<ul>
+<li>503：服务不可用</li>
+</ul>
+</li>
+</ul>
+<p>重点记：2开头代表成功，4开头代表客户端请求错误，5开头代表服务器错误</p>
+</blockquote>
+<h4 id="10-一个页面从输入-www-baidu-com-到页面加载显示完成，这个过程中都发生了什么？"><a href="#10-一个页面从输入-www-baidu-com-到页面加载显示完成，这个过程中都发生了什么？" class="headerlink" title="10.一个页面从输入 www.baidu.com 到页面加载显示完成，这个过程中都发生了什么？"></a>10.一个页面从输入 www.baidu.com 到页面加载显示完成，这个过程中都发生了什么？</h4><blockquote>
+<p>dns获取ip地址 -&gt; 找到ip地址 -&gt; 分割请求报文段 -&gt; 请求端口服务器 -&gt; 根据报文段返回数据 -&gt; 客户端解析响应报文段 -&gt; 解析dom -&gt; 渲染css/执行js <br>
+  备注:连接服务器过程中会发生TCP三次握手和四次挥手，这个是深入的题目了。 <br></p>
+<p>参考答案2,分为4个步骤：</p>
+<ul>
+<li>1.当发送一个 URL 请求时，不管这个 URL 是 Web 页面的 URL 还是 Web 页面上每个资源的 URL，浏览器都会开启一个线程来处理这个请求，同时在远程 DNS 服务器上启动一个 DNS 查询。这能使浏览器获得请求对应的 IP 地址。</li>
+<li>2.浏览器与远程 Web 服务器通过 TCP 三次握手协商来建立一个 TCP/IP 连接。该握手包括一个同步报文，一个同步-应答报文和一个应答报文，这三个报文在 浏览器和服务器之间传递。该握手首先由客户端尝试建立起通信，而后服务器应答并接受客户端的请求，最后由客户端发出该请求已经被接受的报文。</li>
+<li>3.一旦 TCP/IP 连接建立，浏览器会通过该连接向远程服务器发送 HTTP 的 GET 请求。远程服务器找到资源并使用 HTTP 响应返回该资源，值为 200 的 HTTP 响应状态表示一个正确的响应。</li>
+<li>4.此时，Web 服务器提供资源服务，客户端开始下载资源</li>
+</ul>
+</blockquote>
+<h4 id="11-TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题"><a href="#11-TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题" class="headerlink" title="11.TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题"></a>11.TCP三次握手和四次挥手的全过程，为什么会采用三次握手，此题算高级题</h4><blockquote>
+<ul>
+<li>三次握手：<ul>
+<li>第一次握手：客户端发送syn包(syn=x)到服务器，并进入SYN_SEND状态，等待服务器确认；</li>
+<li>第二次握手：服务器收到syn包，必须确认客户的SYN（ack=x+1），同时自己也发送一个SYN包（syn=y），即SYN+ACK包，此时服务器进入SYN_RECV状态；</li>
+<li>第三次握手：客户端收到服务器的SYN＋ACK包，向服务器发送确认包ACK(ack=y+1)，此包发送完毕，客户端和服务器进入ESTABLISHED状态，完成三次握手。
+握手过程中传送的包里不包含数据，三次握手完毕后，客户端与服务器才正式开始传送数据。理想状态下，TCP连接一旦建立，在通信双方中的任何一方主动关闭连接之前，TCP 连接都将被一直保持下去。</li>
+</ul>
+</li>
+<li>四次挥手 <br>
+与建立连接的“三次握手”类似，断开一个TCP连接则需要“四次握手”。<ul>
+<li>第一次挥手：主动关闭方发送一个FIN，用来关闭主动方到被动关闭方的数据传送，也就是主动关闭方告诉被动关闭方：我已经不 会再给你发数据了(当然，在fin包之前发送出去的数据，如果没有收到对应的ack确认报文，主动关闭方依然会重发这些数据)，但是，此时主动关闭方还可 以接受数据。</li>
+<li>第二次挥手：被动关闭方收到FIN包后，发送一个ACK给对方，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号）。</li>
+<li>第三次挥手：被动关闭方发送一个FIN，用来关闭被动关闭方到主动关闭方的数据传送，也就是告诉主动关闭方，我的数据也发送完了，不会再给你发数据了。</li>
+<li>第四次挥手：主动关闭方收到FIN后，发送一个ACK给被动关闭方，确认序号为收到序号+1，至此，完成四次挥手</li>
+</ul>
+</li>
+</ul>
+<p>简单打法 TCP的三次握手过程：主机A向B发送连接请求；主机B对收到的主机A的报文段进行确认；主机A再次对主机B的确认进行确认。</p>
+<p>为什么采用:采用三次握手是为了防止失效的连接请求报文段突然又传送到主机B，因而产生错误。失效的连接请求报文段是指：主机A发出的连接请求没有收到主机B的确认，于是经过一段时间后，主机A又重新向主机B发送连接请求，且建立成功，顺序完成数据传输。考虑这样一种特殊情况，主机A第一次发送的连接请求并没有丢失，而是因为网络节点导致延迟达到主机B，主机B以为是主机A又发起的新连接，于是主机B同意连接，并向主机A发回确认，但是此时主机A根本不会理会，主机B就一直在等待主机A发送数据，导致主机B的资源浪费</p>
+</blockquote>
+<h4 id="12-你用什么ide，编辑器进行开发"><a href="#12-你用什么ide，编辑器进行开发" class="headerlink" title="12.你用什么ide，编辑器进行开发"></a>12.你用什么ide，编辑器进行开发</h4><blockquote>
+<p>atom,hbuilder</p>
+</blockquote>
+<h4 id="13-为什么要做前端"><a href="#13-为什么要做前端" class="headerlink" title="13.为什么要做前端"></a>13.为什么要做前端</h4><h4 id="14-你对加班的看法？"><a href="#14-你对加班的看法？" class="headerlink" title="14.你对加班的看法？"></a>14.你对加班的看法？</h4><h4 id="15-说说最近最流行的一些东西吧？常去哪些网站？"><a href="#15-说说最近最流行的一些东西吧？常去哪些网站？" class="headerlink" title="15.说说最近最流行的一些东西吧？常去哪些网站？"></a>15.说说最近最流行的一些东西吧？常去哪些网站？</h4><blockquote>
+<p>框架 react,angular,vue</p>
+</blockquote>
+<h4 id="16-是否了解开源的工具-bower、npm、yeoman、grunt、gulp，一个-npm-的包里的-package-json-具备的必要的字段都有哪些？（名称、版本号，依赖）"><a href="#16-是否了解开源的工具-bower、npm、yeoman、grunt、gulp，一个-npm-的包里的-package-json-具备的必要的字段都有哪些？（名称、版本号，依赖）" class="headerlink" title="16.是否了解开源的工具 bower、npm、yeoman、grunt、gulp，一个 npm 的包里的 package.json 具备的必要的字段都有哪些？（名称、版本号，依赖）"></a>16.是否了解开源的工具 bower、npm、yeoman、grunt、gulp，一个 npm 的包里的 package.json 具备的必要的字段都有哪些？（名称、版本号，依赖）</h4><h4 id="17-会用git吗"><a href="#17-会用git吗" class="headerlink" title="17.会用git吗"></a>17.会用git吗</h4><blockquote>
+<p>会使用的是可视化工具操作git，非命令行操作的不会</p>
+</blockquote>
+<h4 id="18-简单描述一下你做过的移动APP项目研发流程？"><a href="#18-简单描述一下你做过的移动APP项目研发流程？" class="headerlink" title="18.简单描述一下你做过的移动APP项目研发流程？"></a>18.简单描述一下你做过的移动APP项目研发流程？</h4><blockquote>
+<p>拿到设计图后先思考大概的布局; <br>
+  决定是否使用框架及使用什么框架; <br>
+  评估哪些组件和样式可以复用; <br>
+  切图新建项目开始工作</p>
+</blockquote>
+<h4 id="19-最近在学什么？能谈谈你未来3，5年给自己的规划吗？"><a href="#19-最近在学什么？能谈谈你未来3，5年给自己的规划吗？" class="headerlink" title="19.最近在学什么？能谈谈你未来3，5年给自己的规划吗？"></a>19.最近在学什么？能谈谈你未来3，5年给自己的规划吗？</h4><h4 id="20-你如何对网站的文件和资源进行优化？"><a href="#20-你如何对网站的文件和资源进行优化？" class="headerlink" title="20.你如何对网站的文件和资源进行优化？"></a>20.你如何对网站的文件和资源进行优化？</h4><blockquote>
+<p>1.文件合并<br>
+  2.文件最小化/文件压缩<br>
+  3.使用 CDN 托管</p>
+</blockquote>
+<h4 id="21-平时如何管理你的项目？"><a href="#21-平时如何管理你的项目？" class="headerlink" title="21.平时如何管理你的项目？"></a>21.平时如何管理你的项目？</h4><blockquote>
+<p>1.先期团队必须确定好全局样式（globe.css），编码模式(utf-8) 等 <br>
+  2.编写习惯必须一致（例如都是采用继承式的写法，单样式都写成一行）<br>
+  3.标注样式编写人，各模块都及时标注（标注关键样式调用的地方）<br>
+  4.页面进行标注（例如 页面 模块 开始和结束）<br>
+  5.CSS 跟 HTML 分文件夹并行存放，命名都得统一（例如 style.css）<br>
+  6.JS 分文件夹存放 命名以该 JS 功能为准的英文翻译</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[js面试题]]></title>
+      <url>http://yoursite.com/2016/11/25/js/</url>
+      <content type="html"><![CDATA[<h4 id="1-给网页添加javascript的方式有"><a href="#1-给网页添加javascript的方式有" class="headerlink" title="1.给网页添加javascript的方式有"></a>1.给网页添加javascript的方式有</h4><blockquote>
+<p>使用script标签，将javascript代码写到<code>&lt;script&gt;&lt;/script&gt;</code>之间 <br>
+  添加外部javascript文件 <code>&lt;script src=&quot;x.js&quot;&gt;</code> <br>
+  使用行内javascript  <code>&lt;div onclick=&quot;a()&quot;&gt;&lt;/div&gt;</code></p>
+</blockquote>
+<h4 id="2-js延迟加载的方式有哪些？"><a href="#2-js延迟加载的方式有哪些？" class="headerlink" title="2.js延迟加载的方式有哪些？"></a>2.js延迟加载的方式有哪些？</h4><blockquote>
+<ol>
+<li><code>&lt;script src=&quot;xx.js&quot; defer=&quot;defer&quot;&gt;</code></li>
+<li>动态创建DOM方式（js创建script标签插入到DOM中）</li>
+</ol>
+</blockquote>
+<h4 id="3-介绍一下-JS-的基本数据类型。"><a href="#3-介绍一下-JS-的基本数据类型。" class="headerlink" title="3.介绍一下 JS 的基本数据类型。"></a>3.介绍一下 JS 的基本数据类型。</h4><blockquote>
+<p>Undefined、Null、Boolean、Number、String、Object</p>
+</blockquote>
+<h4 id="4-介绍一下-JS-有哪些内置对象。"><a href="#4-介绍一下-JS-有哪些内置对象。" class="headerlink" title="4.介绍一下 JS 有哪些内置对象。"></a>4.介绍一下 JS 有哪些内置对象。</h4><blockquote>
+<p>数据封装类对象：Object、Array、Boolean、Number、String <br>
+  其他对象：Function、Argument、Math、Date、RegExp、Error</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="5-说几条写JavaScript的基本规范？"><a href="#5-说几条写JavaScript的基本规范？" class="headerlink" title="5.说几条写JavaScript的基本规范？"></a>5.说几条写JavaScript的基本规范？</h4><blockquote>
+<p>（1）不要在同一行声明多个变量 <br>
+  （2）如果你不知道数组的长度，使用 push <br>
+  （3）请使用 ===/!== 来比较 true/false 或者数值 <br>
+  （4）对字符串使用单引号 ‘’(因为大多时候我们的字符串。特别html会出现”) <br>
+  （5）使用对象字面量替代 new Array 这种形式 <br>
+  （6）绝对不要在一个非函数块里声明一个函数，把那个函数赋给一个变量。浏览器允许你这么做，但是它们解析不同 <br>
+  （7）不要使用全局函数 <br>
+  （8）总是使用 var 来声明变量，如果不这么做将导致产生全局变量，我们要避免污染全局命名空间 <br>
+  （9）Switch 语句必须带有 default 分支 <br>
+  （10）使用 <code>/*...*/</code> 进行多行注释，包括描述，指定类型以及参数值和返回值 <br>
+  （11）函数不应该有时候有返回值，有时候没有返回值 <br>
+  （12）语句结束一定要加分号 <br>
+  （13）for 循环必须使用大括号 <br>
+  （14）if 语句必须使用大括号 <br>
+  （15）for-in 循环中的变量应该使用 var 关键字明确限定作用域，从而避免作用域污染 <br>
+  （16）避免单个字符名，让你的变量名有描述意义 <br>
+  （17）当命名对象、函数和实例时使用驼峰命名规则 <br>
+  （18）给对象原型分配方法，而不是用一个新的对象覆盖原型，覆盖原型会使继承出现问题 <br>
+  （19）当给事件附加数据时，传入一个哈希而不是原始值，这可以让后面的贡献者加入更多数据到事件数据里，而不用找出并更新那个事件的事件处理器</p>
+</blockquote>
+<h4 id="6-对JSON-的了解？"><a href="#6-对JSON-的了解？" class="headerlink" title="6.对JSON 的了解？"></a>6.对JSON 的了解？</h4><blockquote>
+<p>JSON是一种轻量级的数据交换格式。它是基于JavaScript的一个子集。数据格式简单, 易于读写, 占用带宽小
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"age"</span>:<span class="string">"18"</span>, <span class="attr">"name"</span>:<span class="string">"cc"</span>&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="7-documen-write和-innerHTML-的区别"><a href="#7-documen-write和-innerHTML-的区别" class="headerlink" title="7.documen.write和 innerHTML 的区别"></a>7.documen.write和 innerHTML 的区别</h4><blockquote>
+<p>document.write 只能重绘整个页面 <br>
+  innerHTML 可以重绘页面的一部分</p>
+</blockquote>
+<h4 id="8-new操作符具体干了什么呢"><a href="#8-new操作符具体干了什么呢" class="headerlink" title="8.new操作符具体干了什么呢?"></a>8.new操作符具体干了什么呢?</h4><blockquote>
+<p>1.创建一个空对象，并且 this 变量引用该对象，同时还继承了该函数的原型 <br>
+  2.属性和方法被加入到 this 引用的对象中 <br>
+  3.新创建的对象由 this 所引用，并且最后隐式的返回 this
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//代码表示</span></div><div class="line"><span class="keyword">var</span> obj  = &#123;&#125;;</div><div class="line">obj.__proto__ = Base.prototype;</div><div class="line">Base.call(obj);</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="9-null和undefined的区别？"><a href="#9-null和undefined的区别？" class="headerlink" title="9.null和undefined的区别？"></a>9.null和undefined的区别？</h4><blockquote>
+<p>null是一个表示”无”的对象，转为数值时为0 <br>
+  undefined是一个表示”无”的原始值，转为数值时为NaN<br>
+当声明的变量还未被初始化时，变量的默认值为undefined，表示有但未定义 <br>
+  null用来表示尚未存在的对象，常用来表示函数企图返回一个不存在的对象</p>
+</blockquote>
+<h4 id="10-哪些操作会造成内存泄漏？"><a href="#10-哪些操作会造成内存泄漏？" class="headerlink" title="10.哪些操作会造成内存泄漏？"></a>10.哪些操作会造成内存泄漏？</h4><blockquote>
+<p>内存泄漏指任何对象在您不再拥有或需要它之后仍然存在。<br>
+  垃圾回收器定期扫描对象，并计算引用了每个对象的其他对象的数量。如果一个对象的引用数量为 0（没有其他对象引用过该对象），或对该对象的惟一引用是循环的，那么该对象的内存即可回收。<br>
+1.setTimeout 的第一个参数使用字符串而非函数的话，会引发内存泄漏。<br>
+  2.闭包<br>
+  3.控制台日志 (此条不明)<br>
+  4.循环（在两个对象彼此引用且彼此保留时，就会产生一个循环）</p>
+</blockquote>
+<h4 id="11-ajax-的过程是怎样的"><a href="#11-ajax-的过程是怎样的" class="headerlink" title="11.ajax 的过程是怎样的"></a>11.ajax 的过程是怎样的</h4><blockquote>
+<p>1.创建XMLHttpRequest对象,也就是创建一个异步调用对象 <br>
+  2.创建一个新的HTTP请求,并指定该HTTP请求的方法、URL及验证信息 <br>
+  3.设置响应HTTP请求状态变化的函数 <br>
+  4.发送HTTP请求 <br>
+  5.获取异步调用返回的数据 <br>
+  6.使用JavaScript和DOM实现局部刷新</p>
+</blockquote>
+<h4 id="12-什么是-“use-strict”-使用它的好处和坏处分别是什么"><a href="#12-什么是-“use-strict”-使用它的好处和坏处分别是什么" class="headerlink" title="12.什么是 “use strict”; ? 使用它的好处和坏处分别是什么"></a>12.什么是 “use strict”; ? 使用它的好处和坏处分别是什么</h4><blockquote>
+<ul>
+<li>设立”严格模式”的目的，主要有以下几个：<ul>
+<li>消除Javascript语法的一些不合理、不严谨之处，减少一些怪异行为;</li>
+<li>消除代码运行的一些不安全之处，保证代码运行的安全；</li>
+<li>提高编译器效率，增加运行速度；</li>
+<li>为未来新版本的Javascript做好铺垫。<br></li>
+</ul>
+</li>
+</ul>
+<p>注：经过测试 IE6,7,8,9 均不支持严格模式。</p>
+</blockquote>
+<h4 id="13-Ajax是什么？"><a href="#13-Ajax是什么？" class="headerlink" title="13.Ajax是什么？"></a>13.Ajax是什么？</h4><blockquote>
+<ul>
+<li>Ajax 是什么：<ul>
+<li>通过异步模式，提升了用户体验</li>
+<li>优化了浏览器和服务器之间的传输，减少不必要的数据往返，减少了带宽占用</li>
+<li>Ajax 在客户端运行，承担了一部分本来由服务器承担的工作，减少了大用户量下的服务器负载。</li>
+</ul>
+</li>
+<li>Ajax 的最大的特点：<ul>
+<li>Ajax可以实现动态不刷新（局部刷新）</li>
+<li>readyState 属性 状态 有5个可取值： 0 = 未初始化，1 = 启动， 2 = 发送，3 = 接收，4 = 完成</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="14-JavaScript-原型，原型链-有什么特点？"><a href="#14-JavaScript-原型，原型链-有什么特点？" class="headerlink" title="14.JavaScript 原型，原型链 ? 有什么特点？"></a>14.JavaScript 原型，原型链 ? 有什么特点？</h4><blockquote>
+<ul>
+<li>原型对象也是普通的对象，是对象一个自带隐式的 <code>__proto__</code> 属性，原型也有可能有自己的原型，如果一个原型对象的原型不为 null 的话，我们就称之为原型链</li>
+<li>原型链是由一些用来继承和共享属性的对象组成的（有限的）对象链 <br></li>
+<li>每个对象都会在其内部初始化一个属性，就是prototype(原型)，当我们访问一个对象的属性时，如果这个对象内部不存在这个属性，那么他就会去prototype里找这个属性，这个prototype又会有自己的prototype，于是就这样一直找下去，也就是我们平时所说的原型链的概念。<br></li>
+<li>关系：<code>instance.constructor.prototype = instance.__proto__</code><br></li>
+<li>特点：JavaScript对象是通过引用来传递的，我们创建的每个新对象实体中并没有一份属于自己的原型副本，当我们修改原型时，与之相关的对象也会继承这一改变。<br></li>
+<li>当我们需要一个属性时，JavaScript引擎会先看当前对象中是否有这个属性，如果没有的话，就会查找它的prototype对象是否有这个属性，如此递推下去，一致检索到Object内建对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Func</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line">Func.prototype.name = <span class="string">"Xiaosong"</span>;</div><div class="line">Func.prototype.getInfo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Func();</div><div class="line"><span class="built_in">console</span>.log(person.getInfo());</div><div class="line"><span class="comment">//"Xiaosong"</span></div><div class="line"><span class="built_in">console</span>.log(Func.prototype);</div><div class="line"><span class="comment">//Func &#123; name = "Xiaosong", getInfo = function() &#125;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h4 id="15-eval-是做什么的？"><a href="#15-eval-是做什么的？" class="headerlink" title="15.eval 是做什么的？"></a>15.eval 是做什么的？</h4><blockquote>
+<p>它的功能是把对应的字符串解析成JS代码并运行；
+  应该避免使用eval，因为不安全，非常耗性能（2次，一次解析成js语句，一次执行）。</p>
+</blockquote>
+<h4 id="16-什么是闭包-closure-，为什么要用它？"><a href="#16-什么是闭包-closure-，为什么要用它？" class="headerlink" title="16.什么是闭包(closure)，为什么要用它？"></a>16.什么是闭包(closure)，为什么要用它？</h4><blockquote>
+<p>闭包是指有权访问另一个函数作用域中变量的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量，利用闭包可以突破作用链域，将函数内部的变量和方法传递到外部。<br></p>
+<ul>
+<li>闭包特性：<ul>
+<li>函数内再嵌套函数</li>
+<li>内部函数可以引用外层的参数和变量</li>
+<li>参数和变量不会被垃圾回收机制回收<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span> index = 0 <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span> index = 1 <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span> index = 2 <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">li</span>&gt;</span> index = 3 <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> nodes = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'li'</span>);</div><div class="line">  <span class="keyword">for</span>(i = <span class="number">0</span>;i&lt;nodes.length;i+=<span class="number">1</span>) &#123;</div><div class="line">      nodes[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">          <span class="built_in">console</span>.log(i+<span class="number">1</span>); <span class="comment">//不使用闭包的话，值每次都是4</span></div><div class="line">      &#125;(<span class="number">4</span>);</div><div class="line">  &#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="17-DOM-操作——怎样添加、移除、移动、复制、创建和查找节点"><a href="#17-DOM-操作——怎样添加、移除、移动、复制、创建和查找节点" class="headerlink" title="17.DOM 操作——怎样添加、移除、移动、复制、创建和查找节点"></a>17.DOM 操作——怎样添加、移除、移动、复制、创建和查找节点</h4><blockquote>
+<ul>
+<li>(1)创建新节点<ul>
+<li>createDocumentFragment()    //创建一个DOM片段</li>
+<li>createElement()   //创建一个具体的元素</li>
+<li>createTextNode()   //创建一个文本节点</li>
+</ul>
+</li>
+<li>(2)添加、移除、替换、插入<ul>
+<li>appendChild()</li>
+<li>removeChild()</li>
+<li>replaceChild()</li>
+<li>insertBefore() //在已有的子节点前插入一个新的子节点</li>
+</ul>
+</li>
+<li>(3)查找<ul>
+<li>getElementsByTagName()    //通过标签名称</li>
+<li>getElementsByName()    //通过元素的Name属性的值(IE容错能力较强，会得到一个数组，其中包括id等于name值的)</li>
+<li>getElementById()    //通过元素Id，唯一性</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="jquery题"><a href="#jquery题" class="headerlink" title="jquery题"></a>jquery题</h1><h4 id="1-在jquery中想要实现通过远程http-get请求载入信息功能用什么方法？-如何请求ajax？"><a href="#1-在jquery中想要实现通过远程http-get请求载入信息功能用什么方法？-如何请求ajax？" class="headerlink" title="1.在jquery中想要实现通过远程http get请求载入信息功能用什么方法？/ 如何请求ajax？"></a>1.在jquery中想要实现通过远程http get请求载入信息功能用什么方法？/ 如何请求ajax？</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$.ajax(&#123;                <span class="comment">// jquery封装的ajax请求方式</span></div><div class="line">  url: <span class="string">"地址url"</span>,        <span class="comment">// 填入请求的地址参数</span></div><div class="line">  success: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  <span class="comment">// 如果请求成功执行...</span></div><div class="line">    ...</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="高级题"><a href="#高级题" class="headerlink" title="高级题"></a>高级题</h1><h4 id="1-如何解决跨域问题"><a href="#1-如何解决跨域问题" class="headerlink" title="1.如何解决跨域问题?"></a>1.如何解决跨域问题?</h4><h4 id="2-javascript对象的几种创建方式"><a href="#2-javascript对象的几种创建方式" class="headerlink" title="2.javascript对象的几种创建方式"></a>2.javascript对象的几种创建方式</h4><blockquote>
+<p>1.工厂模式 <br>
+  2.构造函数模式 <br>
+  3.原型模式 <br>
+  4.混合构造函数和原型模式 <br>
+  5.动态原型模式 <br>
+  6.寄生构造函数模式 <br>
+  7.稳妥构造函数模式 <br>
+  参考笔记 2.0</p>
+</blockquote>
+<h4 id="3-javascript继承的-6-种方法-这题我也不懂"><a href="#3-javascript继承的-6-种方法-这题我也不懂" class="headerlink" title="3.javascript继承的 6 种方法 (这题我也不懂)"></a>3.javascript继承的 6 种方法 (这题我也不懂)</h4><blockquote>
+<p>1.原型链继承<br>
+  2.借用构造函数继承<br>
+  3.组合继承(原型+借用构造)<br>
+  4.原型式继承<br>
+  5.寄生式继承<br>
+  6.寄生组合式继承<br>
+(1)构造继承<br>
+  (2)原型继承<br>
+  (3)实例继承<br>
+  (4)拷贝继承
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//原型prototype机制或apply和call方法去实现较简单，建议使用构造函数与原型混合方式。</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = <span class="string">'song'</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.age = <span class="number">28</span>;</div><div class="line">&#125;</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent(); <span class="comment">//通过原型,继承了Parent</span></div><div class="line"><span class="keyword">var</span> demo = <span class="keyword">new</span> Child()l;</div><div class="line">alert(demo.age);</div><div class="line">alert(demo.name); <span class="comment">//得到被继承的属性</span></div></pre></td></tr></table></figure></p>
+</blockquote>
 ]]></content>
     </entry>
     
