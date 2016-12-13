@@ -606,9 +606,7 @@
     <entry>
       <title><![CDATA[JS笔记]]></title>
       <url>http://yoursite.com/2016/11/29/JS%E7%AC%94%E8%AE%B0/</url>
-      <content type="html"><![CDATA[<h3 id="css样式笔记">1.bind、call、apply函数的用法</h3>
-
-<p>js里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。</p>
+      <content type="html"><![CDATA[<h3 id="1-bind、call、apply函数的用法"><a href="#1-bind、call、apply函数的用法" class="headerlink" title="1.bind、call、apply函数的用法"></a>1.bind、call、apply函数的用法</h3><p>js里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。</p>
  <a id="more"></a>
 <p></p><h4 id="方法调用">·方法调用</h4>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;    </div><div class="line">  <span class="attr">c</span> : <span class="number">0</span>,    </div><div class="line">  <span class="attr">f</span> : <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;                </div><div class="line">      <span class="keyword">this</span>.c = n;    </div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">a.f(<span class="number">3</span>);</div></pre></td></tr></table></figure><p></p>
@@ -641,6 +639,131 @@
 <blockquote>
 <p>call() 与 apply() 都是立马就调用了对应的函数，而 bind() 不会， bind() 会生成一个新的函数。<br>bind() 函数的参数跟 call() 一致，第一个参数也是绑定 this 的值，后面接受传递给函数的不定参数。bind() 生成的新函数返回后，你可以随时调用。</p>
 </blockquote>
+<h3 id="2-Ajax"><a href="#2-Ajax" class="headerlink" title="2.Ajax"></a>2.Ajax</h3><h4 id="什么是服务器"><a href="#什么是服务器" class="headerlink" title="什么是服务器"></a>什么是服务器</h4><ol>
+<li>网页浏览过程分析</li>
+<li>如何配置自己的服务器程序（AMP）<ul>
+<li>下载wamp软件（还有其他服务器软件）</li>
+<li>找到www的文件夹，新建html文件(项目都要放www文件夹里，放服务器下的文件要用英文命名)</li>
+<li>localhost/XXX.html  或  127.0.0.1/XXX.html</li>
+</ul>
+</li>
+</ol>
+<h4 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h4><ul>
+<li>可以让JS读取服务器上的数据</li>
+<li>不刷新页面的前提下去服务器读取或发送数据<ul>
+<li>用户注册、在线聊天室</li>
+<li>异步、同步</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用Ajax"><a href="#使用Ajax" class="headerlink" title="使用Ajax"></a>使用Ajax</h4><ol>
+<li><p>基础：请求并显示静态TXT文件</p>
+<ul>
+<li>字符集编码:所有的文件（包括html、js、要读取的文件等）必须统一编码（什么编码都可以，但必须统一）<ul>
+<li><font color="red">有中文编码改为UTF-8</font></li>
+</ul>
+</li>
+<li>缓存、阻止缓存（？后的数据叫get数据，get数据任何变化对网页不产生影响）<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></div><div class="line">   &#123;</div><div class="line">       ajax(<span class="string">'aaa.txt?t='</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime(),<span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;               <span class="comment">//后台不会接受t，只是给浏览器看的，让url，每次都不一样</span></div><div class="line">           alert(str);</div><div class="line">       &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">           alert(<span class="string">'失败'</span>);</div><div class="line">       &#125;);</div><div class="line">   &#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>动态数据：请求JS（或json）文件</p>
+<ul>
+<li>通过Ajax读取的任何数据都是以字符串的形式存在</li>
+<li><font color="red">eval</font>的使用:eval是把语句里的内容解析成js可以识别的东西</li>
+<li>DOM创建元素<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">[&#123;<span class="attr">user</span>: <span class="string">'blue'</span>, <span class="attr">pass</span>: <span class="string">'123456'</span>&#125;,&#123;<span class="attr">user</span>: <span class="string">'张三'</span>, <span class="attr">pass</span>: <span class="string">'654321'</span>&#125;,&#123;<span class="attr">user</span>: <span class="string">'李四'</span>, <span class="attr">pass</span>: <span class="string">'789456'</span>&#125;,&#123;<span class="attr">user</span>: <span class="string">'王五'</span>, <span class="attr">pass</span>: <span class="string">'7777'</span>&#125;]</div><div class="line"></div><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">      <span class="keyword">var</span> oBtn=<span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</div><div class="line">      <span class="keyword">var</span> oUl=<span class="built_in">document</span>.getElementById(<span class="string">'ul1'</span>);</div><div class="line">      </div><div class="line">      oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></div><div class="line">      &#123;</div><div class="line">            ajax(<span class="string">'data.txt?t='</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime(), <span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;</div><div class="line">                  <span class="keyword">var</span> arr=<span class="built_in">eval</span>(str);</div><div class="line">                  </div><div class="line">                  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)</div><div class="line">                  &#123;</div><div class="line">                        <span class="keyword">var</span> oLi=<span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</div><div class="line">                        </div><div class="line">                        oLi.innerHTML=<span class="string">'用户名：&lt;strong&gt;'</span>+arr[i].user+<span class="string">'&lt;/strong&gt;密码：&lt;span&gt;'</span>+arr[i].pass+<span class="string">'&lt;/span&gt;'</span>;</div><div class="line">                        </div><div class="line">                        oUl.appendChild(oLi);</div><div class="line">                  &#125;</div><div class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</div><div class="line">                  alert(<span class="string">'失败'</span>);</div><div class="line">            &#125;);</div><div class="line">      &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>局部刷新：请求并显示部分网页文件</p>
+</li>
+</ol>
+<h4 id="Ajax原理"><a href="#Ajax原理" class="headerlink" title="Ajax原理"></a>Ajax原理</h4><ol>
+<li>HTTP请求方法<ul>
+<li>GET——用于获取数据（如：浏览帖子）<ul>
+<li>名字=值&amp;名字=值……</li>
+</ul>
+</li>
+<li>POST——用于上传数据（如：用户注册）</li>
+</ul>
+</li>
+<li><p>GET、POST的区别</p>
+<ul>
+<li><p>get：通过网址传递（在url里传数据：安全性、容量）</p>
+<pre><code>* 容量小（一般4k-10k）
+* 安全性差（密码等直接显示在地址栏里与历史记录里）
+* 有缓存
+</code></pre></li>
+<li><p>post：不通过网址传递（通过http Content）</p>
+<pre><code>* 容量大（一般2G）
+* 安全性好一点
+* 没有缓存
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;form action="http://www.zhinengshe.com/" method="post"&gt;		//method默认get</div><div class="line">    用户名:&lt;input type="text" name="username" /&gt;&lt;br&gt;		//name功能与id有些类似，但它是把数据传给后台</div><div class="line">    密码：&lt;input  type="password" name="password" /&gt;&lt;br&gt;</div><div class="line">  &lt;input type="submit" /&gt;</div><div class="line">&lt;/form&gt;</div></pre></td></tr></table></figure>
+<h4 id="编写Ajax"><a href="#编写Ajax" class="headerlink" title="编写Ajax"></a>编写Ajax</h4><ol>
+<li>创建Ajax对象<ul>
+<li>ActiveXObject(“Microsoft.XMLHTTP”)</li>
+<li>XMLHttpRequest()————Ajax真正的对象</li>
+</ul>
+</li>
+<li>连接到服务器<ul>
+<li>open(方法, 文件名, 异步传输)<ul>
+<li>同步和异步<ul>
+<li>同步：事情一件件来</li>
+<li>异步：多个事情可以一起做（Ajax天生用于做异步）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>发送请求（告诉服务器我要什么文件）)<ul>
+<li>send()</li>
+</ul>
+</li>
+<li>请求状态监控（接收返回值）<ul>
+<li>onreadystatechange事件（作为事件形式存在，当服务器信息返回回来时事件会被调用）<ul>
+<li>readyState属性：请求状态<ul>
+<li>0    （未初始化）还没有调用open()方法</li>
+<li>1    （载入）已调用send()方法，正在发送请求</li>
+<li>2    （载入完成）send()方法完成，已从服务器接收到全部响应内容（可能是加密过的可能是压缩过的）</li>
+<li>3    （解析）正在解析响应内容（解码解压）</li>
+<li><font color="red">4</font>    （完成）响应内容解析完成，可以在客户端调用了<font color="red">（成功失败都会出现4）</font></li>
+</ul>
+</li>
+<li>status（http状态码）属性：告知请求结果是成功还是失败</li>
+<li>responseText　　服务器发送回来的文本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>步骤类似拨号（有手机-拨号-说-听）</p>
+</blockquote>
+<h5 id="全局变量小知识"><a href="#全局变量小知识" class="headerlink" title="全局变量小知识"></a>全局变量小知识</h5><ul>
+<li><p>全局变量是window的一个属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a=<span class="number">12</span>;</div><div class="line"></div><div class="line">alert(a); 等于 alert(<span class="built_in">window</span>.a);</div></pre></td></tr></table></figure>
+</li>
+<li><p>用没有定义的变量——报错　　用没有定义的属性——undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alert(a);		<span class="comment">//报错</span></div><div class="line">alert(<span class="built_in">window</span>.a);		<span class="comment">//undefined</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> (<span class="params">url, fnSucc, fnFaild</span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> oBtn=<span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</div><div class="line">	</div><div class="line">	oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		<span class="comment">//1.创建Ajax对象</span></div><div class="line">		<span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)	<span class="comment">//要用属性的方式，具体看全局变量小知识</span></div><div class="line">		&#123;</div><div class="line">			<span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();		<span class="comment">//只兼容非IE6</span></div><div class="line">		&#125;</div><div class="line">		<span class="keyword">else</span></div><div class="line">		&#123;</div><div class="line">			<span class="keyword">var</span> oAjax=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);	<span class="comment">//IE6</span></div><div class="line">		&#125;</div><div class="line">		</div><div class="line">		<span class="comment">//2.连接服务器</span></div><div class="line">		<span class="comment">//open(方法, 文件名, 异步传输)</span></div><div class="line">		oAjax.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);		<span class="comment">//一般用get,?t清除缓存</span></div><div class="line">		</div><div class="line">		<span class="comment">//3.发送请求</span></div><div class="line">		oAjax.send();</div><div class="line">		</div><div class="line">		<span class="comment">//4.接收返回</span></div><div class="line">		oAjax.onreadystatechange=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)	//与服务器之间有交互的时候发生的事件</span></div><div class="line">		&#123;</div><div class="line">			<span class="comment">//oAjax.readyState	//浏览器和服务器，进行到哪一步了</span></div><div class="line">			<span class="keyword">if</span>(oAjax.readyState==<span class="number">4</span>)	<span class="comment">//读取完成,成功失败都是4</span></div><div class="line">			&#123;</div><div class="line">				<span class="keyword">if</span>(oAjax.status==<span class="number">200</span>)	<span class="comment">//200代表成功，其他全是失败</span></div><div class="line">				&#123;</div><div class="line">					fnSucc(oAjax.responseText);</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">else</span></div><div class="line">				&#123;</div><div class="line">					<span class="keyword">if</span>(fnFaild)</div><div class="line">					&#123;</div><div class="line">						fnFaild(oAjax.status);</div><div class="line">					&#125;</div><div class="line">					<span class="comment">//alert('失败:'+oAjax.status);		//404（最多见）</span></div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;;</div><div class="line">	&#125;;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">var</span> oBtn=<span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</div><div class="line">	</div><div class="line">	oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></div><div class="line">	&#123;</div><div class="line">		ajax(<span class="string">'a.txt'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;</div><div class="line">			alert(str);</div><div class="line">		&#125;);</div><div class="line">	&#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="Ajax数据"><a href="#Ajax数据" class="headerlink" title="Ajax数据"></a>Ajax数据</h4><ol>
+<li>数据类型<ul>
+<li>什么叫数据类型——英语、中文</li>
+<li>XML、Json(同等数据量的情况下XML比Json大的多，XML基本被淘汰)</li>
+</ul>
+</li>
+<li>字符集<ul>
+<li>所有文件字符集相同（所有文件包括html、js、被读取文件统一为UTF-8即可）</li>
+</ul>
+</li>
+</ol>
 ]]></content>
     </entry>
     
