@@ -1,0 +1,1164 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="html," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/ico.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="1.bind、call、apply函数的用法js里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS笔记">
+<meta property="og:url" content="http://yoursite.com/2017/05/19/JS笔记/index.html">
+<meta property="og:site_name" content="cyn">
+<meta property="og:description" content="1.bind、call、apply函数的用法js里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-04-07T07:05:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JS笔记">
+<meta name="twitter:description" content="1.bind、call、apply函数的用法js里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '6357534273150387000',
+      author: 'cynshow'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/19/JS笔记/"/>
+
+
+
+
+
+  <title> JS笔记 | cyn </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?8899b816b69df2cf6bc5fda8e702073c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">cyn</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-works">
+          <a href="/works" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-folder"></i> <br />
+            
+            练习
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/19/JS笔记/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="cynshow">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="http://ohaziw2mb.bkt.clouddn.com/head.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="cyn">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="cyn" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JS笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-19T20:34:00+08:00">
+                2017-05-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JS/" itemprop="url" rel="index">
+                    <span itemprop="name">JS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/05/19/JS笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/19/JS笔记/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/05/19/JS笔记/" class="leancloud_visitors" data-flag-title="JS笔记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="1-bind、call、apply函数的用法"><a href="#1-bind、call、apply函数的用法" class="headerlink" title="1.bind、call、apply函数的用法"></a>1.bind、call、apply函数的用法</h3><p>js里函数调用有 4 种模式：方法调用、正常函数调用、构造器函数调用、apply/call 调用。<br>同时，无论哪种函数调用除了你声明时定义的形参外，还会自动添加 2 个形参，分别是 this 和 arguments。</p>
+ <a id="more"></a>
+<p></p><h4 id="方法调用">·方法调用</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;    </span><br><span class="line">  c : <span class="number">0</span>,    </span><br><span class="line">  f : <span class="function"><span class="keyword">function</span>(<span class="params">n</span>) </span>&#123;                </span><br><span class="line">      <span class="keyword">this</span>.c = n;    </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">a.f(<span class="number">3</span>);</span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<p>函数是一个对象的属性,this绑定的是对象 a</p>
+</blockquote>
+<p></p><h4 id="正常函数调用">·正常函数调用</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">n</span>) </span>&#123;        </span><br><span class="line">    <span class="keyword">this</span>.x = n;</span><br><span class="line">&#125;</span><br><span class="line">f(<span class="number">3</span>);</span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<p>函数 f里的 this 绑定的是全局对象,如果是在浏览器运行的解释器中一般来说是 window 对象。
+所以这里 this.x 访问的其实是 window.x .如果 window 没有 x 属性，那就是给 window 对象添加了一个 x 属性，同时赋值。</p>
+</blockquote>
+<p></p><h4 id="构造器函数调用">·构造器函数调用</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x</span>) </span>&#123;        </span><br><span class="line">    <span class="keyword">this</span>.m = x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> a(<span class="number">3</span>);</span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<p>this 绑定的是 b</p>
+</blockquote>
+<p></p><h4 id="apply调用">·apply调用</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x</span>) </span>&#123;        </span><br><span class="line">  <span class="keyword">this</span>.b = x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">a.apply(o, [<span class="number">3</span>]);</span><br><span class="line">alert(a.b);    <span class="comment">// undefined</span></span><br><span class="line">alert(o.b);    <span class="comment">// 3</span></span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<p>apply 函数接收 2 个参数，第一个是传递给这个函数用来绑定 this 的值，第二个是一个参数数组。如果你 apply 的第一个参数传递 null，那么在函数 a 里面 this 指针依然会绑定全局对象。</p>
+</blockquote>
+<p></p><h4 id="call调用">·call调用</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params">x, y</span>) </span>&#123;    </span><br><span class="line">    alert(x, y);    </span><br><span class="line">    alert(<span class="keyword">this</span>);    </span><br><span class="line">    alert(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line">a.apply(<span class="literal">null</span>, [<span class="number">3</span>, <span class="number">33</span>]);</span><br><span class="line">a.call(<span class="literal">null</span>, <span class="number">3</span>, <span class="number">33</span>);</span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<p>call() 函数接收 2 个参数，第一个是传递给这个函数用来绑定 this 的值，第二个接受的是不定参数。就是可以像平时给函数传参那样一个一个传递参数。</p>
+</blockquote>
+<p></p><h4 id="bind调用">·bind调用</h4>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = &#123;   </span><br><span class="line">    <span class="string">"x"</span> : <span class="number">1</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">y</span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.x + y);</span><br><span class="line">&#125;</span><br><span class="line">f.apply(m, [<span class="number">3</span>]);</span><br><span class="line">f.call(m, <span class="number">3</span>);</span><br><span class="line"><span class="keyword">var</span> fo = f.bind(m, <span class="number">3</span>);</span><br><span class="line">fo();</span><br></pre></td></tr></table></figure><p></p>
+<blockquote>
+<p>call() 与 apply() 都是立马就调用了对应的函数，而 bind() 不会， bind() 会生成一个新的函数。<br>bind() 函数的参数跟 call() 一致，第一个参数也是绑定 this 的值，后面接受传递给函数的不定参数。bind() 生成的新函数返回后，你可以随时调用。</p>
+</blockquote>
+<h3 id="2-Ajax"><a href="#2-Ajax" class="headerlink" title="2.Ajax"></a>2.Ajax</h3><h4 id="什么是服务器"><a href="#什么是服务器" class="headerlink" title="什么是服务器"></a>什么是服务器</h4><ol>
+<li>网页浏览过程分析</li>
+<li>如何配置自己的服务器程序（AMP）<ul>
+<li>下载wamp软件（还有其他服务器软件）</li>
+<li>找到www的文件夹，新建html文件(项目都要放www文件夹里，放服务器下的文件要用英文命名)</li>
+<li>localhost/XXX.html  或  127.0.0.1/XXX.html</li>
+</ul>
+</li>
+</ol>
+<h4 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h4><ul>
+<li>可以让JS读取服务器上的数据</li>
+<li>不刷新页面的前提下去服务器读取或发送数据<ul>
+<li>用户注册、在线聊天室</li>
+<li>异步、同步</li>
+</ul>
+</li>
+</ul>
+<h4 id="使用Ajax"><a href="#使用Ajax" class="headerlink" title="使用Ajax"></a>使用Ajax</h4><ol>
+<li><p>基础：请求并显示静态TXT文件</p>
+<ul>
+<li>字符集编码:所有的文件（包括html、js、要读取的文件等）必须统一编码（什么编码都可以，但必须统一）<ul>
+<li><font color="red">有中文编码改为UTF-8</font></li>
+</ul>
+</li>
+<li>缓存、阻止缓存（？后的数据叫get数据，get数据任何变化对网页不产生影响）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">       ajax(<span class="string">'aaa.txt?t='</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime(),<span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;               <span class="comment">//后台不会接受t，只是给浏览器看的，让url，每次都不一样</span></span><br><span class="line">           alert(str);</span><br><span class="line">       &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">           alert(<span class="string">'失败'</span>);</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>动态数据：请求JS（或json）文件</p>
+<ul>
+<li>通过Ajax读取的任何数据都是以字符串的形式存在</li>
+<li><font color="red">eval</font>的使用:eval是把语句里的内容解析成js可以识别的东西</li>
+<li>DOM创建元素<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[&#123;<span class="attr">user</span>: <span class="string">'blue'</span>, <span class="attr">pass</span>: <span class="string">'123456'</span>&#125;,&#123;<span class="attr">user</span>: <span class="string">'张三'</span>, <span class="attr">pass</span>: <span class="string">'654321'</span>&#125;,&#123;<span class="attr">user</span>: <span class="string">'李四'</span>, <span class="attr">pass</span>: <span class="string">'789456'</span>&#125;,&#123;<span class="attr">user</span>: <span class="string">'王五'</span>, <span class="attr">pass</span>: <span class="string">'7777'</span>&#125;]</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">      <span class="keyword">var</span> oBtn=<span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</span><br><span class="line">      <span class="keyword">var</span> oUl=<span class="built_in">document</span>.getElementById(<span class="string">'ul1'</span>);</span><br><span class="line"></span><br><span class="line">      oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">      </span>&#123;</span><br><span class="line">            ajax(<span class="string">'data.txt?t='</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime(), <span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;</span><br><span class="line">                  <span class="keyword">var</span> arr=<span class="built_in">eval</span>(str);</span><br><span class="line"></span><br><span class="line">                  <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)</span><br><span class="line">                  &#123;</span><br><span class="line">                        <span class="keyword">var</span> oLi=<span class="built_in">document</span>.createElement(<span class="string">'li'</span>);</span><br><span class="line"></span><br><span class="line">                        oLi.innerHTML=<span class="string">'用户名：&lt;strong&gt;'</span>+arr[i].user+<span class="string">'&lt;/strong&gt;密码：&lt;span&gt;'</span>+arr[i].pass+<span class="string">'&lt;/span&gt;'</span>;</span><br><span class="line"></span><br><span class="line">                        oUl.appendChild(oLi);</span><br><span class="line">                  &#125;</span><br><span class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">                  alert(<span class="string">'失败'</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">      &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>局部刷新：请求并显示部分网页文件</p>
+</li>
+</ol>
+<h4 id="Ajax原理"><a href="#Ajax原理" class="headerlink" title="Ajax原理"></a>Ajax原理</h4><ol>
+<li>HTTP请求方法<ul>
+<li>GET——用于获取数据（如：浏览帖子）<ul>
+<li>名字=值&amp;名字=值……</li>
+</ul>
+</li>
+<li>POST——用于上传数据（如：用户注册）</li>
+</ul>
+</li>
+<li><p>GET、POST的区别</p>
+<ul>
+<li><p>get：通过网址传递（在url里传数据：安全性、容量）</p>
+<pre><code>* 容量小（一般4k-10k）
+* 安全性差（密码等直接显示在地址栏里与历史记录里）
+* 有缓存
+</code></pre></li>
+<li><p>post：不通过网址传递（通过http Content）</p>
+<pre><code>* 容量大（一般2G）
+* 安全性好一点
+* 没有缓存
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action="http://www.zhinengshe.com/" method="post"&gt;		//method默认get</span><br><span class="line">    用户名:&lt;input type="text" name="username" /&gt;&lt;br&gt;		//name功能与id有些类似，但它是把数据传给后台</span><br><span class="line">    密码：&lt;input  type="password" name="password" /&gt;&lt;br&gt;</span><br><span class="line">  &lt;input type="submit" /&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="编写Ajax"><a href="#编写Ajax" class="headerlink" title="编写Ajax"></a>编写Ajax</h4><ol>
+<li>创建Ajax对象<ul>
+<li>ActiveXObject(“Microsoft.XMLHTTP”)</li>
+<li>XMLHttpRequest()————Ajax真正的对象</li>
+</ul>
+</li>
+<li>连接到服务器<ul>
+<li>open(方法, 文件名, 异步传输)<ul>
+<li>同步和异步<ul>
+<li>同步：事情一件件来</li>
+<li>异步：多个事情可以一起做（Ajax天生用于做异步）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>发送请求（告诉服务器我要什么文件）)<ul>
+<li>send()</li>
+</ul>
+</li>
+<li>请求状态监控（接收返回值）<ul>
+<li>onreadystatechange事件（作为事件形式存在，当服务器信息返回回来时事件会被调用）<ul>
+<li>readyState属性：请求状态<ul>
+<li>0    （未初始化）还没有调用open()方法</li>
+<li>1    （载入）已调用send()方法，正在发送请求</li>
+<li>2    （载入完成）send()方法完成，已从服务器接收到全部响应内容（可能是加密过的可能是压缩过的）</li>
+<li>3    （解析）正在解析响应内容（解码解压）</li>
+<li><font color="red">4</font>    （完成）响应内容解析完成，可以在客户端调用了<font color="red">（成功失败都会出现4）</font></li>
+</ul>
+</li>
+<li>status（http状态码）属性：告知请求结果是成功还是失败</li>
+<li>responseText　　服务器发送回来的文本</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>步骤类似拨号（有手机-拨号-说-听）</p>
+</blockquote>
+<h5 id="全局变量小知识"><a href="#全局变量小知识" class="headerlink" title="全局变量小知识"></a>全局变量小知识</h5><ul>
+<li><p>全局变量是window的一个属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=<span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">alert(a); 等于 alert(<span class="built_in">window</span>.a);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用没有定义的变量——报错　　用没有定义的属性——undefined</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alert(a);		<span class="comment">//报错</span></span><br><span class="line">alert(<span class="built_in">window</span>.a);		<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> (<span class="params">url, fnSucc, fnFaild</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> oBtn=<span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</span><br><span class="line"></span><br><span class="line">	oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//1.创建Ajax对象</span></span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">window</span>.XMLHttpRequest)	<span class="comment">//要用属性的方式，具体看全局变量小知识</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">var</span> oAjax=<span class="keyword">new</span> XMLHttpRequest();		<span class="comment">//只兼容非IE6</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">var</span> oAjax=<span class="keyword">new</span> ActiveXObject(<span class="string">"Microsoft.XMLHTTP"</span>);	<span class="comment">//IE6</span></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//2.连接服务器</span></span><br><span class="line">		<span class="comment">//open(方法, 文件名, 异步传输)</span></span><br><span class="line">		oAjax.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);		<span class="comment">//一般用get</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//3.发送请求</span></span><br><span class="line">		oAjax.send();</span><br><span class="line"></span><br><span class="line">		<span class="comment">//4.接收返回</span></span><br><span class="line">		oAjax.onreadystatechange=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)	//与服务器之间有交互的时候发生的事件</span></span><br><span class="line"><span class="function">		</span>&#123;</span><br><span class="line">			<span class="comment">//oAjax.readyState	//浏览器和服务器，进行到哪一步了</span></span><br><span class="line">			<span class="keyword">if</span>(oAjax.readyState==<span class="number">4</span>)	<span class="comment">//读取完成,成功失败都是4</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(oAjax.status==<span class="number">200</span>)	<span class="comment">//200代表成功，其他全是失败</span></span><br><span class="line">				&#123;</span><br><span class="line">					fnSucc(oAjax.responseText);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">if</span>(fnFaild)</span><br><span class="line">					&#123;</span><br><span class="line">						fnFaild(oAjax.status);</span><br><span class="line">					&#125;</span><br><span class="line">					<span class="comment">//alert('失败:'+oAjax.status);		//404（最多见）</span></span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> oBtn=<span class="built_in">document</span>.getElementById(<span class="string">'btn1'</span>);</span><br><span class="line"></span><br><span class="line">	oBtn.onclick=<span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		ajax(<span class="string">'a.txt'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">str</span>)</span>&#123;</span><br><span class="line">			alert(str);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Ajax数据"><a href="#Ajax数据" class="headerlink" title="Ajax数据"></a>Ajax数据</h4><ol>
+<li>数据类型<ul>
+<li>什么叫数据类型——英语、中文</li>
+<li>XML、Json(同等数据量的情况下XML比Json大的多，XML基本被淘汰)</li>
+</ul>
+</li>
+<li>字符集<ul>
+<li>所有文件字符集相同（所有文件包括html、js、被读取文件统一为UTF-8即可）</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/09/功能笔记/" rel="next" title="功能笔记">
+                <i class="fa fa-chevron-left"></i> 功能笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/28/各类标签实用技巧/" rel="prev" title="各类标签实用代码">
+                各类标签实用代码 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/05/19/JS笔记/"
+     data-title="JS笔记"
+     data-content=""
+     data-url="http://yoursite.com/2017/05/19/JS笔记/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/05/19/JS笔记/"
+           data-title="JS笔记" data-url="http://yoursite.com/2017/05/19/JS笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://ohaziw2mb.bkt.clouddn.com/head.jpg"
+               alt="cynshow" />
+          <p class="site-author-name" itemprop="name">cynshow</p>
+          <p class="site-description motion-element" itemprop="description">陈燕妮的博客</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cynshow" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="mailto:511428688@qq.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-envelope-o"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://coding.net/u/cynshow" target="_blank" title="Coding">
+                  
+                    <i class="fa fa-fw fa-creative-commons"></i>
+                  
+                  Coding
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-bind、call、apply函数的用法"><span class="nav-text">1.bind、call、apply函数的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法调用"><span class="nav-text">·方法调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#正常函数调用"><span class="nav-text">·正常函数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造器函数调用"><span class="nav-text">·构造器函数调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#apply调用"><span class="nav-text">·apply调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#call调用"><span class="nav-text">·call调用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bind调用"><span class="nav-text">·bind调用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Ajax"><span class="nav-text">2.Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是服务器"><span class="nav-text">什么是服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是Ajax"><span class="nav-text">什么是Ajax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用Ajax"><span class="nav-text">使用Ajax</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax原理"><span class="nav-text">Ajax原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写Ajax"><span class="nav-text">编写Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#全局变量小知识"><span class="nav-text">全局变量小知识</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ajax数据"><span class="nav-text">Ajax数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cynshow</span>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"cynblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("2JIDBBbCYmHb7JzupDtPUmsk-gzGzoHsz", "lPkccxNvPVw9GT8M7WTIlINI");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+
+</body>
+</html>
