@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="1.安装vuex  使用npm安装并保存到package.json中： 12//局部安装npm install vuex --save package.json 12345 &quot;devDependencies&quot;: &amp;#123;  ...  &quot;vuex&quot;: &quot;^2.1.1&quot;,  ...&amp;#125;,">
+<meta name="description" content="1.安装vuex  使用npm安装并保存到package.json中： 12//局部安装npm install vuex --save package.json中会显示 12345 &quot;devDependencies&quot;: &amp;#123;  ...  &quot;vuex&quot;: &quot;^2.1.1&quot;,  ...&amp;#125;,">
 <meta name="keywords" content="vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vuex笔记">
 <meta property="og:url" content="http://yoursite.com/2018/03/10/vuex笔记/index.html">
 <meta property="og:site_name" content="cyn">
-<meta property="og:description" content="1.安装vuex  使用npm安装并保存到package.json中： 12//局部安装npm install vuex --save package.json 12345 &quot;devDependencies&quot;: &amp;#123;  ...  &quot;vuex&quot;: &quot;^2.1.1&quot;,  ...&amp;#125;,">
+<meta property="og:description" content="1.安装vuex  使用npm安装并保存到package.json中： 12//局部安装npm install vuex --save package.json中会显示 12345 &quot;devDependencies&quot;: &amp;#123;  ...  &quot;vuex&quot;: &quot;^2.1.1&quot;,  ...&amp;#125;,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-07T07:14:21.000Z">
+<meta property="og:updated_time" content="2018-06-25T02:12:05.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vuex笔记">
-<meta name="twitter:description" content="1.安装vuex  使用npm安装并保存到package.json中： 12//局部安装npm install vuex --save package.json 12345 &quot;devDependencies&quot;: &amp;#123;  ...  &quot;vuex&quot;: &quot;^2.1.1&quot;,  ...&amp;#125;,">
+<meta name="twitter:description" content="1.安装vuex  使用npm安装并保存到package.json中： 12//局部安装npm install vuex --save package.json中会显示 12345 &quot;devDependencies&quot;: &amp;#123;  ...  &quot;vuex&quot;: &quot;^2.1.1&quot;,  ...&amp;#125;,">
 
 
 
@@ -394,7 +394,7 @@
 
 <p>使用npm安装并保存到package.json中：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//局部安装</span></span><br><span class="line">npm install vuex --save</span><br></pre></td></tr></table></figure>
-<p>package.json</p>
+<p>package.json中会显示</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">"vuex"</span>: <span class="string">"^2.1.1"</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="配置">2.配置</h3>
@@ -450,8 +450,7 @@ mutations方法中是可以传参的，具体用法如下：<br></p>
   使用单一状态树，导致应用的所有状态集中到一个很大的对象。但是，当应用变得很大时，store 对象会变得臃肿不堪。<br><br>
   为了解决以上问题，Vuex 允许我们将 store 分割到模块（module）。每个模块拥有自己的 state、mutation、action、getters、甚至是嵌套子模块——从上至下进行类似的分割：<br><p></p>
   <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;,</span><br><span class="line">  getters: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> moduleB = &#123;</span><br><span class="line">  state: &#123; ... &#125;,</span><br><span class="line">  mutations: &#123; ... &#125;,</span><br><span class="line">  actions: &#123; ... &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = <span class="keyword">new</span> Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    a: moduleA,</span><br><span class="line">    b: moduleB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">store.state.a <span class="comment">// -&gt; moduleA 的状态</span></span><br><span class="line">store.state.b <span class="comment">// -&gt; moduleB 的状态</span></span><br></pre></td></tr></table></figure>
-<p>module其实还是对于大型的SPA应用来说的，暂时对module的应用和理解并没有太多，之后会补上这一块儿的内容。<br>
-想要了解更多module知识，请查阅<a href="https://vuex.vuejs.org/zh-cn/modules.html" target="_blank" rel="noopener">官方module文档</a><br></p>
+<p>想要了解更多module知识，请查阅<a href="https://vuex.vuejs.org/zh-cn/modules.html" target="_blank" rel="noopener">官方module文档</a><br></p>
 
       
     </div>
@@ -587,7 +586,7 @@ mutations方法中是可以传参的，具体用法如下：<br></p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

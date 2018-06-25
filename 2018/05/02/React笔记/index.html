@@ -84,18 +84,18 @@
 
 
 
-<meta name="description" content="1.安装react  确保你电脑上安装了最新版本的 Node.js.  1234567891011npm install -g create-react-appcreate-react-app my-appcd my-apprm -f src //清空src目录下的文件,可不操作//开发用npm start//发布项目用npm run build //在该项目的build/文件夹内创建一个生产版本">
+<meta name="description" content="一.基础知识  1.多页应用特征   内容都由服务端用模板生产 每次页面跳转都要经过服务器 js更多只是做做动画">
 <meta name="keywords" content="react">
 <meta property="og:type" content="article">
 <meta property="og:title" content="react笔记">
 <meta property="og:url" content="http://yoursite.com/2018/05/02/React笔记/index.html">
 <meta property="og:site_name" content="cyn">
-<meta property="og:description" content="1.安装react  确保你电脑上安装了最新版本的 Node.js.  1234567891011npm install -g create-react-appcreate-react-app my-appcd my-apprm -f src //清空src目录下的文件,可不操作//开发用npm start//发布项目用npm run build //在该项目的build/文件夹内创建一个生产版本">
+<meta property="og:description" content="一.基础知识  1.多页应用特征   内容都由服务端用模板生产 每次页面跳转都要经过服务器 js更多只是做做动画">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T03:36:54.000Z">
+<meta property="og:updated_time" content="2018-06-25T02:48:30.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react笔记">
-<meta name="twitter:description" content="1.安装react  确保你电脑上安装了最新版本的 Node.js.  1234567891011npm install -g create-react-appcreate-react-app my-appcd my-apprm -f src //清空src目录下的文件,可不操作//开发用npm start//发布项目用npm run build //在该项目的build/文件夹内创建一个生产版本">
+<meta name="twitter:description" content="一.基础知识  1.多页应用特征   内容都由服务端用模板生产 每次页面跳转都要经过服务器 js更多只是做做动画">
 
 
 
@@ -390,19 +390,82 @@
       
 
       
-        <p></p><h3 id="安装react">1.安装react</h3><p></p>
-<blockquote>
-<p>确保你电脑上安装了最新版本的 Node.js.</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line"></span><br><span class="line">cd my-app</span><br><span class="line">rm -f src <span class="comment">//清空src目录下的文件,可不操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//开发用</span></span><br><span class="line">npm start</span><br><span class="line"></span><br><span class="line"><span class="comment">//发布项目用</span></span><br><span class="line">npm run build <span class="comment">//在该项目的build/文件夹内创建一个生产版本的应用。</span></span><br></pre></td></tr></table></figure>
+        <h3 id="一.基础知识">一.基础知识</h3>
+
+<h4 id="1.多页应用特征">1.多页应用特征</h4>
+
+<ul>
+<li>内容都由服务端用模板生产<br></li>
+<li>每次页面跳转都要经过服务器<br></li>
+<li>js更多只是做做动画</li>
+</ul>
 <a id="more"></a>
-<p></p><h3 id="为什么React的性能好">为什么React的性能好</h3>
+<h4 id="2.单页应用特征">2.单页应用特征</h4>
+
+<ul>
+<li>所有内容都是在前端生产<br></li>
+<li>JS承担更多的业务逻辑，后端只提供API <br></li>
+<li>页面路由跳转不需要经过后端</li>
+</ul>
+<h4 id="3.单页面应用的问题">3.单页面应用的问题</h4>
+
+<p>在现在的web、app开发模式下，我们用的很多前端的框架都是在浏览器端渲染html内容。</p>
+<ul>
+<li>SEO不友好 <br>
+SEO需要解析url请求返回的html里的内容才做SEO的推广内容，单页应用加载过程中页面里是没有任何内容的，所以SEO抓不到东西。<br></li>
+<li>首屏事件较长，用户体验差<br>
+要等所有js内容加载完后再把所有的内容渲染出来。</li>
+</ul>
+<p>于是服务端渲染就此诞生，依旧是React作为先驱，为我们带来了可以前后端同构的可能。</p>
+<h4 id="4.架构工具">4.架构工具</h4>
+
+<ul>
+<li><font color="red">npm</font></li>
+<li>bower</li>
+<li>jspm</li>
+</ul>
+<h4 id="5.模块化工具">5.模块化工具</h4>
+
+<ul>
+<li>webpack
+模块打包器<br>
+webpack打包的核心是loader机制，通过loader处理制定的某种类型的资源。</li>
+<li>rollup
+打包效率比webpack高，且只加载引用的函数，有些公司开发用webpack，上线的时候用rollup</li>
+</ul>
+<h4 id="6.保证项目质量">6.保证项目质量</h4>
+
+<ul>
+<li>code lint</li>
+<li>不同环境排除差异<br>
+editconfig：编码模式</li>
+<li>git commit 预处理 <br>
+上传git的时候强制检测代码是否有错</li>
+</ul>
+<h4 id="7.web开发常用网络优化方法">7.web开发常用网络优化方法</h4>
+
+<ul>
+<li>合并资源文件，减少HTTP请求<br>
+浏览器并发请求有限制，pc浏览器限制8个，移动端限制6个</li>
+<li>压缩资源文件减小请求大小</li>
+<li>利用缓存机制，尽可能使用缓存减少请求<br>
+版本更新的话在打包文件时生成hash值，文件内容修改过的话hash值会变。</li>
+</ul>
+<h4 id="8.react中如何使用服务端渲染">8.react中如何使用服务端渲染</h4>
+
+<p>rect-dom是react专门为web端开发的渲染工具。在客户端使用react-dom的render方法渲染组件，而在服务器端，react-dom/server提供我们将react组件渲染成HTML的方法。</p>
+<h3 id="二.安装react">二.安装react</h3>
+
+<p>确保你电脑上安装了最新版本的 Node.js.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm install -g create-react-app</span><br><span class="line">create-react-app my-app</span><br><span class="line"></span><br><span class="line">cd my-app</span><br><span class="line">rm -f src <span class="comment">//清空src目录下的文件,可不操作</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//开发用</span></span><br><span class="line">npm start</span><br><span class="line"></span><br><span class="line"><span class="comment">//发布项目用</span></span><br><span class="line">npm run build <span class="comment">//在该项目的build/文件夹内创建一个生产版本的应用。</span></span><br></pre></td></tr></table></figure>
+<!--more-->
+<p></p><h3 id="三.为什么React的性能好">三.为什么React的性能好</h3>
 因为React做了俩点优化。<p></p>
-<h4 id="在渲染时性能的优化">1.在渲染时性能的优化</h4>
+<h4 id="1.在渲染时性能的优化">1.在渲染时性能的优化</h4>
 
 <p>React是创建了一个虚拟dom，这个dom不是真正页面中的dom元素，它实质上是一个js对象，用js对象存储dom上的信息，因此比真是的dom小得多，因为他只记录的一些必要的信息。
 操作一个虚拟dom需要的性能要远小于操作一个真实dom的性能，在前端开发一个web应用与开发一个网站不同，web应用通常是一个单页面，因此每次做一些交互会涉及各种dom操作，因此无节制的操作dom严重影响了页面的性能，但是我们只是操作虚拟dom会很好的降低对性能的消耗，在必要的时候将视图渲染到页面之中。</p>
-<h4 id="在开发时的优化">2.在开发时的优化</h4>
+<h4 id="2.在开发时的优化">2.在开发时的优化</h4>
 
 <p>React的开发理念是创建一个虚拟dom，而虚拟dom是一个js对象，它不是基于某一个端，比如真实的dom可能需要浏览器环境，它是基于web端的，所有通过React开发出来的组件可以用于任何平台，比如，服务器端，web端，ios端，android端
 将虚拟dom引用到不同的端上需要不同的插件，然后调用不同的render方法。</p>
@@ -447,10 +510,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/12/react+webpack/" rel="prev" title="react+webpack笔记">
-                react+webpack笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,7 +600,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -628,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装react"><span class="nav-text">1.安装react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么React的性能好"><span class="nav-text">为什么React的性能好</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在渲染时性能的优化"><span class="nav-text">1.在渲染时性能的优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在开发时的优化"><span class="nav-text">2.在开发时的优化</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一.基础知识"><span class="nav-text">一.基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1.多页应用特征"><span class="nav-text">1.多页应用特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2.单页应用特征"><span class="nav-text">2.单页应用特征</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3.单页面应用的问题"><span class="nav-text">3.单页面应用的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4.架构工具"><span class="nav-text">4.架构工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5.模块化工具"><span class="nav-text">5.模块化工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6.保证项目质量"><span class="nav-text">6.保证项目质量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7.web开发常用网络优化方法"><span class="nav-text">7.web开发常用网络优化方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8.react中如何使用服务端渲染"><span class="nav-text">8.react中如何使用服务端渲染</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二.安装react"><span class="nav-text">二.安装react</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三.为什么React的性能好"><span class="nav-text">三.为什么React的性能好</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1.在渲染时性能的优化"><span class="nav-text">1.在渲染时性能的优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2.在开发时的优化"><span class="nav-text">2.在开发时的优化</span></a></li></ol></li></ol></div>
             
 
           </div>
